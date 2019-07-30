@@ -8,6 +8,7 @@ export default function PeopleForm(props){
     const handleSubmit = event => {
         event.preventDefault();
         console.log(people);
+        setPeople({trip: '', person1: '', person2: '', person3:'', person4: '', person5: ''});
     }
     return (
         <div>
