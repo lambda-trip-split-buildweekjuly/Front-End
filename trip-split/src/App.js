@@ -24,6 +24,7 @@ function App(props) {
       email: "aa@email.com",
       password: "aabc123",
       role: "user"
+      
     }
     props.register(creds)
   }
