@@ -5,22 +5,13 @@ function TripDashboard() {
       <Router>
         <div className="dashboard">
           <nav>
-           
               <Link to="/">New Trip</Link>
-           
-           
-              <Link to="/current">Current</Link>
-            
-            
-              <Link to="/past">Past Trips</Link>
-          
+              <Link to="/current">Current</Link>            
+              <Link to="/past">Past Trips</Link> 
           </nav>
-  
-          <hr />
-  
           <Route exact path="/" component={NewTrip} />
-          {/* <Route path="/current" component={Current} />
-          <Route path="/past" component={PastTrips} /> */}
+          <Route path="/current" component={Current} />
+          <Route path="/past" component={PastTrips} />
         </div>
       </Router>
     );
