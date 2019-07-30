@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-size: 62.5%
 }
 
 .App-logo {
@@ -21,6 +22,27 @@
 
 .App-link {
   color: #61dafb;
+}
+
+/* .login-container {
+  background-image: url(./Images/logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+} */
+
+.expense-section {
+  display: flex;
+  justify-content: center;
+}
+.expense-section > button {
+  width: 50px;
+  height: 50px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+.calculate-section {
+  display: flex; 
+  justify-content: center;
 }
 
 @keyframes App-logo-spin {
