@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './App.css';
 import { connect } from 'react-redux';
 import { register, login, getHome, getUsers, getUser, updateUser, deleteUser } from './actions/actions';
@@ -56,6 +57,10 @@ function App(props) {
 
 
 
+
+
+function App() {
+ 
   return (
     <div>
       <LoginForm/>
@@ -71,6 +76,7 @@ function App(props) {
       <button onClick = {getUserTest}>Get user test</button>
       <button onClick = {updateUserTest}>Update user test</button>
       <button onClick = {deleteUserTest}>Delete user</button>
+
 
 
     </div>

@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
  
 
-
 import {applyMiddleware, createStore, compose} from 'redux';
 import reducer from "./reducers/reducer"
 import {Provider} from 'react-redux';
@@ -23,4 +22,5 @@ ReactDOM.render(
         </Router>
     </Provider>
 , document.getElementById('root'));
+
 
