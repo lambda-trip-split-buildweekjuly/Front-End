@@ -4,8 +4,10 @@ import styled from 'styled-components';
 const H2 = styled.h2`text-align: center;`;
 const H3 = styled.h2`text-align: center;`;
 const InputDiv = styled.div`display: flex; flex-direction: column; justify-content: center;`;
-const SignUpDiv = styled.div` text-align: center;`;
+const SignUpDiv = styled.div`border-bottom: 1px solid black; text-align: center; height: 290px;`;
 const Button = styled.button`margin-top: 20px; border-radius: 10px; width: 100px; height: 40px;`;
+const Label = styled.label`margin: 10px;`;
+const Input = styled.input`margin: 10px; border-radius: 3px;`;
 
 function SignUpForm() {
 
@@ -15,12 +17,12 @@ function SignUpForm() {
       <H3>Sign Up!</H3>
       <form onSubmit={null}>
         <InputDiv>
-          <label>Enter Email Address
-            <input placeholder="johndoe@email.com" value={null} name="name" onChange={null} type="email" />
-          </label>
-          <label>Enter a Password
-            <input placeholder="enter password" value={null} name="name" onChange={null} type="password" />
-          </label>
+          <Label>Enter Email Address
+            <Input placeholder="johndoe@email.com" value={null} name="name" onChange={null} type="email" />
+          </Label>
+          <Label>Choose a password!
+            <Input placeholder="enter password" value={null} name="name" onChange={null} type="password" />
+          </Label>
         </InputDiv>
           <Button type="submit">Create Account</Button>
       </form>
