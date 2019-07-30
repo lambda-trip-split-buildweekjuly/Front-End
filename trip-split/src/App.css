@@ -24,6 +24,12 @@
   color: #61dafb;
 }
 
+.login-container {
+  background-image: url(./Images/logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
