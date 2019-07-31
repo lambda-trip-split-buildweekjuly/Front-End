@@ -29,6 +29,18 @@ export const DELETEUSER_START = 'DELETEUSER_START';
 export const DELETEUSER_SUCCESS = 'DELETEUSER_SUCCESS';
 export const DELETEUSER_FAILURE = 'DELETEUSER_FAILURE';
 
+export const GETTRIPS_START = 'GETTRIPS_START';
+export const GETTRIPS_SUCCESS = 'GETTRIPS_SUCCESS';
+export const GETTRIPS_FAILURE = 'GETTRIPS_FAILURE';
+
+export const GETTRIP_START = 'GETTRIP_START';
+export const GETTRIP_SUCCESS = 'GETTRIP_SUCCESS';
+export const GETTRIP_FAILURE = 'GETTRIP_FAILURE';
+
+export const POSTTRIP_START = 'POSTTRIP_START';
+export const POSTTRIP_SUCCESS = 'POSTTRIP_SUCCESS';
+export const POSTTRIP_FAILURE = 'POSTTRIP_FAILURE';
+
 
 
 export const register = creds => dispatch => {
@@ -128,4 +140,46 @@ export const deleteUser = (id) => dispatch => {
         console.log("DELETEUSER ERR: ", err)
         dispatch({ type: DELETEUSER_FAILURE});
       });
+};
+
+export const getTrips = () => (dispatch) => {
+  dispatch ({type: GETTRIPS_START})
+  axiosAuth()
+    .get('https://split-trip-bw.herokuapp.com/api/trips')
+    .then(res => {
+        console.log("GETTRIPS RES: ", res)
+        dispatch({type: GETTRIPS_SUCCESS})
+    })
+    .catch(err => {
+        console.log("GETTRIPS ERR: ", err)
+        dispatch({type: GETTRIPS_FAILURE})
+    })
+}
+
+export const getTrip = (trip_id) => (dispatch) => {
+  dispatch ({type: GETTRIP_START})
+  axiosAuth()
+      .get(`https://split-trip-bw.herokuapp.com/api/trips/${trip_id}`)
+      .then(res => {
+          console.log("GETTRIP RES: ", res)
+          dispatch({type: GETTRIP_SUCCESS, payload: res.data})
+      })
+      .catch(err => {
+          console.log("GETTRIP ERR: ", err)
+          dispatch({type: GETTRIP_FAILURE})
+      })
+};
+
+export const postTrip = (tripObj) => dispatch => {
+  dispatch({ type: POSTTRIP_START });
+  axiosAuth()
+    .post('https://split-trip-bw.herokuapp.com/api/trips', tripObj)
+    .then(res => {
+      console.log("POSTTRIP RES: ", res)
+      dispatch({ type: POSTTRIP_SUCCESS, payload: res.data.posts});
+    })
+    .catch(err => {
+      console.log("POSTTRIP ERR: ", err)
+      dispatch({ type: POSTTRIP_FAILURE});
+    });
 };

@@ -1,25 +1,25 @@
 import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { register, login, getHome, getUsers, getUser, updateUser, deleteUser } from './actions/actions';
+import { register, login, getHome, getUsers, getUser, updateUser, deleteUser, getTrips, getTrip, postTrip } from './actions/actions';
 
 function App(props) {
 
 
   const loginTest = () => {
     let credss = {
-      email: "aa@email.com",
-      password: "aabc123",
+      email: "test@email.com",
+      password: "123456",
     }
     props.login(credss)
   }
 
   const registerTest = () => {
     let creds = {
-      name: "Joe Doe",
-      email: "aa@email.com",
-      password: "aabc123",
-      role: "user"
+      "name": "John Doe",
+      "email": "test@email.com",
+      "password": "123456",
+      "role": "user"
     }
     props.register(creds)
   }
@@ -47,17 +47,38 @@ function App(props) {
     props.deleteUser(1)
   }
 
+  const getTripsTest = () => {
+    props.getTrips()
+  }
+
+  const getTripTest = () => {
+    props.getTrip(0)
+  }
+
+  const postTripTest = () => {
+    let tripObj = {
+      trip_name: "Eleko BEach",
+      trip_destination: "Califonia",
+      trip_no_of_people: 9,
+      trip_date: "17-01-2018"
+    }
+    props.postTrip(tripObj)
+  }
+
 
   return (
     <div className="App">
       <h1>App.js is rendering</h1>
-      <button onClick = {loginTest}>Login Test</button>
-      <button onClick = {registerTest}>Register Test</button>
-      <button onClick = {getTest}>Get test</button>
-      <button onClick = {getUsersTest}>Get Users test</button>
-      <button onClick = {getUserTest}>Get user test</button>
-      <button onClick = {updateUserTest}>Update user test</button>
+      <button onClick = {loginTest}>Login</button>
+      <button onClick = {registerTest}>Register</button>
+      <button onClick = {getTest}>Get home</button>
+      <button onClick = {getUsersTest}>Get Users</button>
+      <button onClick = {getUserTest}>Get user</button>
+      <button onClick = {updateUserTest}>Update user</button>
       <button onClick = {deleteUserTest}>Delete user</button>
+      <button onClick = {getTripsTest}>Get trips</button>
+      <button onClick = {getTripTest}>Get trip</button>
+      <button onClick = {postTripTest}>Post trip</button>
 
     </div>
   );
@@ -68,4 +89,4 @@ function mapStateToProps(state){
   return {}
 }
 
-export default connect(mapStateToProps, {register, login, getHome, getUsers, getUser, updateUser, deleteUser})(App);
+export default connect(mapStateToProps, {register, login, getHome, getUsers, getUser, updateUser, deleteUser, getTrips, getTrip, postTrip})(App);
