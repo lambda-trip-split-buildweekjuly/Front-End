@@ -112,12 +112,25 @@ let tripsData = [
     }
 ]
 
+let closedTrips = [];
+let openTrips = [];
+
+tripsData.forEach(trip => {
+    if(trip.trip_closed === true){
+        closedTrips.push(trip)
+    } else {
+        openTrips.push(trip)
+    }
+})
+
+
 let defaultState = {
     registering: false,
     registered: false,
     loggingIn: false,
     loggedIn: false,
-    trips: tripsData
+    openTrips: openTrips,
+    closedTrips: closedTrips
 }
 
 export default function reducer (state = defaultState, action) {
