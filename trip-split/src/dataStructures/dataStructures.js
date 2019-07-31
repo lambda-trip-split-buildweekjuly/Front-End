@@ -84,3 +84,27 @@
 //       }
   
 //   ] 
+
+[
+    {
+        user_id: id,
+        trip_name: string,
+        trip_id: id,
+        trip_closed: Boolean,
+        expense:[
+            {
+                expense_name: string,
+                expense_id: id,
+                expense_amount: number,
+                expense_members:[
+                    {
+                        person_name: string,
+                        amount_paid: 50,
+                        person_id: id
+                    },
+                 ]
+          
+          }  
+        ]
+    }
+]
