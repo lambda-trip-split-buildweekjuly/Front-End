@@ -10,9 +10,8 @@ function TripsDashboard() {
         <h1>TripsDashboard</h1>
           <nav>
               <Link to="/people-form">New Trip</Link>
+             
           </nav>
-         
-          
         </div>
       // </Route>
     );
