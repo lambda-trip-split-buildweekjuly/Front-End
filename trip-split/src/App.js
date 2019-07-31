@@ -1,7 +1,18 @@
 import React from 'react';
+import {Route} from 'react-router-dom';
 import './App.css';
 import { connect } from 'react-redux';
+
 import { register, login, getHome, getUsers, getUser, updateUser, deleteUser, getTrips, getTrip, postTrip } from './actions/actions';
+
+import PeopleForm from './components/PeopleForm';
+
+import LoginForm from './components/Login/LoginForm';
+import SignUpForm from './components/Login/SignUpForm';
+import Trip from './components/Trip/Trip';
+
+import TripsDashboard from './components/TripsDashboard';
+
 
 function App(props) {
 
@@ -16,10 +27,12 @@ function App(props) {
 
   const registerTest = () => {
     let creds = {
+
       "name": "John Doe",
       "email": "test@email.com",
       "password": "123456",
       "role": "user"
+
     }
     props.register(creds)
   }
@@ -66,6 +79,7 @@ function App(props) {
   }
 
 
+
   return (
     <div className="App">
       <h1>App.js is rendering</h1>
@@ -80,6 +94,21 @@ function App(props) {
       <button onClick = {getTripTest}>Get trip</button>
       <button onClick = {postTripTest}>Post trip</button>
 
+
+
+
+
+
+
+ 
+
+      <h1>App js</h1>
+      {/* <LoginForm/>
+      <SignUpForm/>
+      <Trip/> */}
+      <Route exact path="/" component={TripsDashboard}/>
+      <Route path="/trip" component={Trip}/>
+      <Route path="/people-form" component={PeopleForm}/>
     </div>
   );
 }
