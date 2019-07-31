@@ -143,10 +143,24 @@ export const deleteUser = (id) => dispatch => {
       });
 };
 
+// export const getTrips = () => (dispatch) => {
+//   dispatch ({type: GETTRIPS_START})
+//   axiosAuth()
+//     .get('https://split-trip-bw.herokuapp.com/api/trips')
+//     .then(res => {
+//         console.log("GETTRIPS RES: ", res)
+//         dispatch({type: GETTRIPS_SUCCESS})
+//     })
+//     .catch(err => {
+//         console.log("GETTRIPS ERR: ", err)
+//         dispatch({type: GETTRIPS_FAILURE})
+//     })
+// }
+
 export const getTrips = () => (dispatch) => {
   dispatch ({type: GETTRIPS_START})
   axiosAuth()
-    .get('https://split-trip-bw.herokuapp.com/api/trips')
+    .get('https://split-trip-bw.herokuapp.com/api/people/expenses')
     .then(res => {
         console.log("GETTRIPS RES: ", res)
         dispatch({type: GETTRIPS_SUCCESS})
@@ -157,10 +171,24 @@ export const getTrips = () => (dispatch) => {
     })
 }
 
+// export const getTrip = (trip_id) => (dispatch) => {
+//   dispatch ({type: GETTRIP_START})
+//   axiosAuth()
+//       .get(`https://split-trip-bw.herokuapp.com/api/trips/${trip_id}`)
+//       .then(res => {
+//           console.log("GETTRIP RES: ", res)
+//           dispatch({type: GETTRIP_SUCCESS, payload: res.data})
+//       })
+//       .catch(err => {
+//           console.log("GETTRIP ERR: ", err)
+//           dispatch({type: GETTRIP_FAILURE})
+//       })
+// };
+
 export const getTrip = (trip_id) => (dispatch) => {
   dispatch ({type: GETTRIP_START})
   axiosAuth()
-      .get(`https://split-trip-bw.herokuapp.com/api/trips/${trip_id}`)
+      .get(`https://split-trip-bw.herokuapp.com/api/people/expenses/${trip_id}`)
       .then(res => {
           console.log("GETTRIP RES: ", res)
           dispatch({type: GETTRIP_SUCCESS, payload: res.data})
@@ -170,6 +198,8 @@ export const getTrip = (trip_id) => (dispatch) => {
           dispatch({type: GETTRIP_FAILURE})
       })
 };
+
+// people/expenses
 
 export const postTrip = (tripObj) => dispatch => {
   dispatch({ type: POSTTRIP_START });
