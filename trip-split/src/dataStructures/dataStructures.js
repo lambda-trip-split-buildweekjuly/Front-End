@@ -31,3 +31,17 @@
         ]
     }
 ]
+
+
+[
+    {
+        trip_name: string,
+        trip_id: id,
+        trip_closed: Boolean,
+        expense_name: string,
+        expense_id: id,
+        expense_amount: number,
+        person_name: string,
+        person_id: id
+    }
+]

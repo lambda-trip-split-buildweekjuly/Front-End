@@ -6,6 +6,9 @@ import {
     GETUSER_START, GETUSER_SUCCESS, GETUSER_FAILURE,
     UPDATEUSER_START, UPDATEUSER_SUCCESS, UPDATEUSER_FAILURE,
     DELETEUSER_START, DELETEUSER_SUCCESS, DELETEUSER_FAILURE,
+    GETTRIPS_START, GETTRIPS_SUCCESS, GETTRIPS_FAILURE,
+    GETTRIP_START, GETTRIP_SUCCESS, GETTRIP_FAILURE,
+    POSTTRIP_START, POSTTRIP_SUCCESS, POSTTRIP_FAILURE, 
     } from '../actions/actions';
 
 let defaultState = {
@@ -118,6 +121,44 @@ export default function reducer (state = defaultState, action) {
             return {
                 ...state,
                 } 
+        //################################
+        case GETTRIPS_START:
+            return {
+                ...state,
+            }
+        case GETTRIPS_SUCCESS:
+            return {
+                ...state,
+            }           
+        case GETTRIPS_FAILURE:
+            return {
+                ...state,
+                }
+        //################################
+        case GETTRIP_START:
+            return {
+                ...state,
+            }
+        case GETTRIP_SUCCESS:
+            return {
+                ...state,
+            }           
+        case GETTRIP_FAILURE:
+            return {
+                ...state,
+                }
+        case POSTTRIP_START:
+            return {
+                ...state,
+            }
+        case POSTTRIP_SUCCESS:
+            return {
+                ...state,
+            }           
+        case POSTTRIP_FAILURE:
+            return {
+                ...state,
+            }
         default:
             return state;
     }    
