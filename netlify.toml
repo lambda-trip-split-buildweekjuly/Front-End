@@ -2,3 +2,8 @@
 base = "trip-split/"
 publish = "trip-split/build/"
 command = "yarn build"
+
+[build]
+base = "myapp/"
+publish = "myapp/build/"
+command = "yarn build"
