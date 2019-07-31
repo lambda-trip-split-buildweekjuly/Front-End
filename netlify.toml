@@ -1,0 +1,4 @@
+[build]
+base = "trip-split/"
+publish = "trip-split/build/"
+command = "yarn build"
