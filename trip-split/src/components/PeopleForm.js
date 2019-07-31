@@ -7,11 +7,14 @@ export default function PeopleForm(props){
     };
     const handleSubmit = event => {
         event.preventDefault();
-        console.log(people);
+        // console.log(people);
         setPeople({trip: '', person1: '', person2: '', person3:'', person4: '', person5: ''});
+        props.history.push('/');
+        console.log(props)
     }
     return (
         <div>
+            <h1>PeopleForm</h1>
             <form className="trip-form" onSubmit={handleSubmit}>
                 <input
                 placeholder="Trip Name"
@@ -51,6 +54,7 @@ export default function PeopleForm(props){
                 />
                 <button>Submit</button>
             </form>
+            
         </div>
     )
 }

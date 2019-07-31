@@ -5,7 +5,7 @@ function Trip() {
 
   return (
     <div className="trip-container">
-      
+      <h1>Trip</h1>
       <div className="expense-section">
         <button><h2>+</h2></button>
         <h1>New Expense</h1>
