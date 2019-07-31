@@ -2,6 +2,7 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 import './App.css';
 import { connect } from 'react-redux';
+import {PrivateRoute} from './utils/PrivateRoute';
 
 import { register, login, getHome, getUsers, getUser, updateUser, deleteUser, getTrips, getTrip, postTrip } from './actions/actions';
 
@@ -82,8 +83,8 @@ function App(props) {
 
   return (
     <div className="App">
-      <h1>App.js is rendering</h1>
-      <button onClick = {loginTest}>Login</button>
+      <h1>App js</h1>
+      {/* <button onClick = {loginTest}>Login</button>
       <button onClick = {registerTest}>Register</button>
       <button onClick = {getTest}>Get home</button>
       <button onClick = {getUsersTest}>Get Users</button>
@@ -92,7 +93,7 @@ function App(props) {
       <button onClick = {deleteUserTest}>Delete user</button>
       <button onClick = {getTripsTest}>Get trips</button>
       <button onClick = {getTripTest}>Get trip</button>
-      <button onClick = {postTripTest}>Post trip</button>
+      <button onClick = {postTripTest}>Post trip</button> */}
 
 
 
@@ -102,13 +103,15 @@ function App(props) {
 
  
 
-      <h1>App js</h1>
+      
       {/* <LoginForm/>
       <SignUpForm/>
       <Trip/> */}
-      <Route exact path="/" component={TripsDashboard}/>
+      {/* <Route exact path="/" component={TripsDashboard}/> */}
+      <Route path = "/login" component = {LoginForm} />
       <Route path="/trip" component={Trip}/>
       <Route path="/people-form" component={PeopleForm}/>
+      <PrivateRoute exact path = "/" component = {TripsDashboard}/>
     </div>
   );
 }

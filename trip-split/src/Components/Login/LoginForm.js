@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import logo from '../../Images/logo.png';
 import { connect } from 'react-redux';
 import { register, login, getHome, getUsers, getUser, updateUser, deleteUser } from '../../actions/actions';
+import SignUpForm from './SignUpForm';
+
 //STYLE
 const LoginDiv = styled.div`border-bottom: 1px solid black; text-align: center; height: 560px;`;
 const InputDiv = styled.div`display: flex; justify-content: center;`;
@@ -34,6 +36,9 @@ function LoginForm(props) {
       password: credentials.password
     }
     props.login(credss)
+      .then(res => {
+        props.history.push('/')
+      })
   }
 
   return (
@@ -47,6 +52,7 @@ function LoginForm(props) {
           </InputDiv>
             <Button type="submit">Sign In</Button>
         </form>
+        <SignUpForm />
     </LoginDiv>
   )
 }
