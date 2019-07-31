@@ -65,6 +65,7 @@ export const login = creds => dispatch => {
             console.log("LOGIN_RES: ", res)
             localStorage.setItem('token', res.data.token);
             dispatch({ type: LOGIN_SUCCESS, payload: res.data.user });
+            return true
         })
         .catch(err => {
             console.log("LOGIN ERR: ", err)
