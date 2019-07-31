@@ -15,10 +15,10 @@ function TripsDashboard(props) {
         <div className="dashboard">
         <h1>TripsDashboard</h1>
           <nav>
+
               <Link className = "btn" to="/people-form">New Trip</Link>
+
           </nav>
-         
-          
         </div>
       // </Route>
     );
