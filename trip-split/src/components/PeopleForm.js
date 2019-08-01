@@ -7,10 +7,8 @@ export default function PeopleForm(props){
     };
     const handleSubmit = event => {
         event.preventDefault();
-        
         setPeople({trip: '', person1: '', person2: '', person3:'', person4: '', person5: ''});
         props.history.push('/');
-      
     }
     return (
         <div>
@@ -54,7 +52,6 @@ export default function PeopleForm(props){
                 />
                 <button>Submit</button>
             </form>
-            
         </div>
     )
 }
