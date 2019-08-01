@@ -11,25 +11,22 @@ import {connect} from 'react-redux'
 function TripsDashboard(props) {
   console.log("dash props: ", props)
     return (
-      // <Route>
         <div className="dashboard">
         <h1>TripsDashboard</h1>
           <nav>
               <Link className = "btn" to="/people-form">New Trip</Link>
           </nav>
-         
-          
         </div>
-      // </Route>
     );
   } 
 
 
 //for Redux #######################################################################
 function mapStateToProps(state){
-  console.log("redux in dash: ", state)
   return {
-    trips: state.trips
+    trips: state.trips,
+    closedTrips: state.closedTrips,
+    openTrips: state.openTrips
   }
 }
 

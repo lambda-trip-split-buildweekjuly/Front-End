@@ -112,12 +112,22 @@ let tripsData = [
     }
 ]
 
+const closedTrips = tripsData.filter(trip => {
+    return trip.trip_closed
+})
+
+const openTrips = tripsData.filter(trip => {
+    return trip.trip_closed === false
+})
+
 let defaultState = {
     registering: false,
     registered: false,
     loggingIn: false,
     loggedIn: false,
-    trips: tripsData
+    trips: tripsData,
+    closedTrips: closedTrips,
+    openTrips: openTrips
 }
 
 export default function reducer (state = defaultState, action) {

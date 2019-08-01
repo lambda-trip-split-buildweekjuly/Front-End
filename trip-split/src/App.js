@@ -84,7 +84,7 @@ function App(props) {
   return (
     <div className="App">
       <h1>App js</h1>
-      {/* <button onClick = {loginTest}>Login</button>
+      <button onClick = {loginTest}>Login</button>
       <button onClick = {registerTest}>Register</button>
       <button onClick = {getTest}>Get home</button>
       <button onClick = {getUsersTest}>Get Users</button>
@@ -93,7 +93,7 @@ function App(props) {
       <button onClick = {deleteUserTest}>Delete user</button>
       <button onClick = {getTripsTest}>Get trips</button>
       <button onClick = {getTripTest}>Get trip</button>
-      <button onClick = {postTripTest}>Post trip</button> */}
+      <button onClick = {postTripTest}>Post trip</button>
 
 
 
@@ -117,7 +117,7 @@ function App(props) {
 }
 
 function mapStateToProps(state){
-  // console.log(state)
+  console.log("state: ", state)
   return {}
 }
 
