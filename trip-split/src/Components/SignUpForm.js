@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { connect } from 'react-redux';
-import { register, login, getHome, getUsers, getUser, updateUser, deleteUser } from '../../actions/actions';
+import { register, login, getHome, getUsers, getUser, updateUser, deleteUser } from '../actions/actions';
 //STYLE
 const H2 = styled.h2`text-align: center;`;
 const H3 = styled.h2`text-align: center;`;

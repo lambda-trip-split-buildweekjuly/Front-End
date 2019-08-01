@@ -6,8 +6,8 @@ import {PrivateRoute} from './utils/PrivateRoute';
 import { register, login, getHome, getUsers, getUser, updateUser, deleteUser, getTrips, getTrip, postTrip } from './actions/actions';
 
 import PeopleForm from './components/PeopleForm';
-import LoginForm from './components/Login/LoginForm';
-import Trip from './components/Trip/Trip';
+import LoginForm from './components/LoginForm';
+import Trip from './components/Trip';
 import TripsDashboard from './components/TripsDashboard';
 
 

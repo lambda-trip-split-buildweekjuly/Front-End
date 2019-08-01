@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import logo from '../../Images/logo.png';
+import logo from '../images/logo.png';
 import { connect } from 'react-redux';
-import { register, login } from '../../actions/actions';
+import { register, login } from '../actions/actions';
 import SignUpForm from './SignUpForm';
 
 //STYLE
