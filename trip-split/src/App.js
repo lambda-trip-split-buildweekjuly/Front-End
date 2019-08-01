@@ -107,7 +107,7 @@ function App(props) {
   return (
     <div className="App">
       <h1>Never Worry About Not Getting Paid Back</h1>
-      {/* <button onClick = {loginTest}>Login</button>
+      <button onClick = {loginTest}>Login</button>
       <button onClick = {registerTest}>Register</button>
       <button onClick = {getTest}>Get home</button>
       <button onClick = {getUsersTest}>Get Users</button>
@@ -115,16 +115,11 @@ function App(props) {
       <button onClick = {updateUserTest}>Update user</button>
       <button onClick = {deleteUserTest}>Delete user</button>
       <button onClick = {getTripsTest}>Get trips</button>
-<<<<<<< HEAD
-      {/* <button onClick = {getTripsByUserIdTest}>getTripsByUserId</button> */}
       <button onClick = {postTripTest}>Post trip</button>
       <button onClick = {getTripTest}>get trip</button>
       <button onClick = {postExpenseTest}>Post expense</button>
       <button onClick = {getTripsByUserIdTest}>get trips by user</button>
-=======
-      <button onClick = {getTripTest}>Get trip</button>
-      <button onClick = {postTripTest}>Post trip</button> */}
->>>>>>> a49886afa6cf9ab2e836e92dc0262c54f93c5893
+      <button onClick = {postTripTest}>Post trip</button>
 
       <Route path = "/login" component = {LoginForm} />
       <Route path="/trip/:id" component={Trip}/>

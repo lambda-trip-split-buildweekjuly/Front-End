@@ -4,11 +4,8 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
-<<<<<<< HEAD
     "moment": "^2.24.0",
-=======
     "node-sass": "^4.12.0",
->>>>>>> a49886afa6cf9ab2e836e92dc0262c54f93c5893
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
@@ -17,10 +14,7 @@
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-<<<<<<< HEAD
-=======
     "semantic-ui-react": "^0.87.3",
->>>>>>> a49886afa6cf9ab2e836e92dc0262c54f93c5893
     "styled-components": "^4.3.2"
   },
   "scripts": {
