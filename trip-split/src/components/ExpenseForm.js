@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import {Form} from 'semantic-ui-react';
+import '../styles/ExpenseForm.scss';
+import {Button} from './Buttons.js';
 
 function ExpenseForm(props) {
 
@@ -31,20 +34,18 @@ function ExpenseForm(props) {
   }
 
   return (
-    <div className="amountsPaid-container">
+    <div className="form-container">
      
       <h1>Expense Form</h1>
-        <form onSubmit={onSubmit}>
-          <div>
-            <input value={amountsPaid.expenseName} name="expenseName" onChange={onChange} type="text" />
-            <input value={amountsPaid.amount_paid1} name="amount_paid1" onChange={onChange} type="number" />
-            <input value={amountsPaid.amount_paid2} name="amount_paid2" onChange={onChange} type="number" />
-            <input value={amountsPaid.amount_paid3} name="amount_paid3" onChange={onChange} type="number" />
-            <input value={amountsPaid.amount_paid4} name="amount_paid4" onChange={onChange} type="number" />
-            <input value={amountsPaid.amount_paid5} name="amount_paid5" onChange={onChange} type="number" />
-          </div>
-            <button onClick={() => props.setFormToggle(false)} type="submit">Save Expense</button>
-        </form>
+          <Form className="expense-form" onSubmit={onSubmit}>
+            <Form.Field className="expense-input"><label>Expense</label><input placeholder="Expense" value={amountsPaid.expenseName} name="expenseName" onChange={onChange} type="text" /></Form.Field>
+            <Form.Field className="expense-input"><label>Ed</label><input placeholder="Amount" value={amountsPaid.amount_paid1} name="amount_paid1" onChange={onChange} type="number" /></Form.Field>
+            <Form.Field className="expense-input"><label>Edd</label><input placeholder="Amount" value={amountsPaid.amount_paid2} name="amount_paid2" onChange={onChange} type="number" /></Form.Field>
+            <Form.Field className="expense-input"><label>Eddy</label><input placeholder="Amount" value={amountsPaid.amount_paid3} name="amount_paid3" onChange={onChange} type="number" /></Form.Field>
+            <Form.Field className="expense-input"><label>Tom</label><input placeholder="Amount" value={amountsPaid.amount_paid4} name="amount_paid4" onChange={onChange} type="number" /></Form.Field>
+            <Form.Field className="expense-input"><label>Jerry</label><input placeholder="Amount" value={amountsPaid.amount_paid5} name="amount_paid5" onChange={onChange} type="number" /></Form.Field>
+            <Button onClick={() => props.setFormToggle(false)} type="submit">Save Expense</Button>
+          </Form>
     </div>
   )
 }

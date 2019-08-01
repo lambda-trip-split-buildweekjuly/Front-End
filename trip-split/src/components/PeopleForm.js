@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import { postTrip } from '../actions/actions';
 import moment from "moment";
+import {Form} from 'semantic-ui-react';
 
 function PeopleForm(props){
     const [tripInfo, setTripInfo] = useState({
@@ -34,45 +35,57 @@ function PeopleForm(props){
     return (
         <div>
             <h1>PeopleForm</h1>
-            <form className="trip-form" onSubmit={handleSubmit}>
-                <input
+            <Form onSubmit={handleSubmit}>
+                <Form.Field>
+                    <input
                     placeholder="Trip Name"
                     name="trip"
                     value={tripInfo.trip}
                     onChange={handleChange}
-                />
+                    />
+                </Form.Field>
+                <Form.Field>
                 <input
                     placeholder="Name"
                     name="person1"
                     value={tripInfo.person1}
                     onChange={handleChange}
                 />
+                </Form.Field>
+                <Form.Field>
                 <input
                     placeholder="Name"
                     name="person2"
                     value={tripInfo.person2}
                     onChange={handleChange}
                 />
+                </Form.Field>
+                <Form.Field>
                 <input
                     placeholder="Name"
                     name="person3"
                     value={tripInfo.person3}
                     onChange={handleChange}
                 />
+                </Form.Field>
+                <Form.Field>
                 <input
                     placeholder="Name"
                     name="person4"
                     value={tripInfo.person4}
                     onChange={handleChange}
                 />
+                </Form.Field>
+                <Form.Field>
                 <input
                     placeholder="Name"
                     name="person5"
                     value={tripInfo.person5}
                     onChange={handleChange}
                 />
+                </Form.Field>
                 <button>Submit</button>
-            </form>
+            </Form>
         </div>
     )
 }

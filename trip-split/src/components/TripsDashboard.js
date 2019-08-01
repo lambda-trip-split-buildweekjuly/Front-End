@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import Card from './Card';
-import '../styles/TripsDashboard.css';
+
 import { getTripsByUserId } from '../actions/actions';
 
+import '../styles/TripsDashboard.scss';
 
 //for Redux #####################################################################
 import {connect} from 'react-redux'
