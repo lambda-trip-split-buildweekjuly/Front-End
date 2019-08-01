@@ -6,10 +6,12 @@ import { register, login } from '../actions/actions';
 import SignUpForm from './SignUpForm';
 
 //STYLE
-const LoginDiv = styled.div`border-bottom: 1px solid black; text-align: center; height: 560px;`;
+const WrapperDiv = styled.div`display: flex; justify-content: center; background-color: #e9f2f7`;
+const LoginDiv = styled.div`text-align: center; height: 100%; width: 100vw; border-radius: 10px; border-top: 3px outset #68b5de;`;
 const InputDiv = styled.div`display: flex; justify-content: center;`;
-const Input = styled.input`margin-left: 10px; border-radius: 3px;`;
-const Button = styled.button`margin-top: 20px; border-radius: 10px; width: 100px; height: 40px;`;
+const SignupDiv = styled.div`border-top: 5px double #68b5de; margin-top: 60px;`;
+const Input = styled.input`margin-left: 10px; border-radius: 3px; height: 30px;`;
+const Button = styled.button`margin-top: 20px; border-radius: 10px; width: 150px; height: 50px; background-color: #bac9d1`;
 
 function LoginForm(props) {
 
@@ -42,18 +44,22 @@ function LoginForm(props) {
   }
 
   return (
-    <LoginDiv className="login-container">
-      <img src={logo} alt = ""></img>
-      <h1>Sign In</h1>
-        <form onSubmit={onSubmit}>
-          <InputDiv>
-            <Input placeholder="Email" value={credentials.email} name="email" onChange={onChange} type="email" />
-            <Input placeholder="Password" value={credentials.password} name="password" onChange={onChange} type="password" />
-          </InputDiv>
-            <Button type="submit">Sign In</Button>
-        </form>
-        <SignUpForm />
-    </LoginDiv>
+    <WrapperDiv>
+      <LoginDiv className="login-container">
+        <img className="logo-img" src={logo} alt = ""></img>
+        <h1>Sign In</h1>
+          <form onSubmit={onSubmit}>
+            <InputDiv>
+              <Input placeholder="Email" value={credentials.email} name="email" onChange={onChange} type="email" />
+              <Input placeholder="Password" value={credentials.password} name="password" onChange={onChange} type="password" />
+            </InputDiv>
+              <Button type="submit">Sign In</Button>
+          </form>
+          <SignupDiv>
+            <SignUpForm />
+          </SignupDiv>
+      </LoginDiv>
+    </WrapperDiv>
   )
 }
 
