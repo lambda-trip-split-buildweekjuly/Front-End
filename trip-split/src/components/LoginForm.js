@@ -27,7 +27,7 @@ function LoginForm(props) {
     event.preventDefault();
     loginHandler();
     console.log(credentials);
-    setCredentials({email: "", password: ""});
+    setCredentials({email: "", password: ""}); 
   }
 
   const loginHandler = () => {
