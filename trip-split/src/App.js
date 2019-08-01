@@ -6,13 +6,13 @@ import {PrivateRoute} from './utils/PrivateRoute';
 
 import { register, login, getHome, getUsers, getUser, updateUser, deleteUser, getTrips, getTrip, postTrip } from './actions/actions';
 
-import PeopleForm from './components/PeopleForm';
+import PeopleForm from './Components/PeopleForm';
 
-import LoginForm from './components/Login/LoginForm';
-import SignUpForm from './components/Login/SignUpForm';
-import Trip from './components/Trip/Trip';
+import LoginForm from './Components/Login/LoginForm';
+import SignUpForm from './Components/Login/SignUpForm';
+import Trip from './Components/Trip/Trip';
 
-import TripsDashboard from './components/TripsDashboard';
+import TripsDashboard from './Components/TripsDashboard';
 
 
 function App(props) {
@@ -109,9 +109,10 @@ function App(props) {
       <Trip/> */}
       {/* <Route exact path="/" component={TripsDashboard}/> */}
       <Route path = "/login" component = {LoginForm} />
-      <Route path="/trip" component={Trip}/>
+      <Route path="/trip/:id" component={Trip}/>
       <Route path="/people-form" component={PeopleForm}/>
       <PrivateRoute exact path = "/" component = {TripsDashboard}/>
+      {/* <Route path = "/trip" render = {props => <MovieList addToSavedList = {this.addToSavedList} {...props} /> */}
     </div>
   );
 }

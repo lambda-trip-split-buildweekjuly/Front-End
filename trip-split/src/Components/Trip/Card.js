@@ -1,21 +1,34 @@
 import React from 'react';
+import styled from 'styled-components';
+//STYLE
+const CardDiv = styled.div`border: 1px solid green;`;
 
 
 
 
 export default function Card (props) {
+    // console.log("card-props", props)
+    // function goToTrip() {
+    //     props.history.push({
+    //         pathname: "/trip",
+    //         search: "?the=query",
+    //         state: {trip:props.trip}
+    //     })
+    // }
     console.log(props.trip)
     return(
-        <div>
-            <h1>Card js</h1>
-            <p>{props.trip.trip_name}</p>
+        <CardDiv>
+            
+            <h1>{props.trip.trip_name}</h1>
+            <p>Card js</p>
 
-          {props.trip.expenses.map((expense)=> {
+          {/* {props.trip.expenses.map((expense)=> {
             return(expense.expense_members.map((member)=>{
-                  return(<h1>{member.person_name}</h1>)
+                  return(<h6>{member.person_name}</h6>)
               }))
-          })}
+          })} */}
 
-        </div>
-    )
+        </CardDiv>
+    ) 
+    
 }

@@ -112,17 +112,13 @@ let tripsData = [
     }
 ]
 
-let closedTrips = [];
-let openTrips = [];
-
-tripsData.forEach(trip => {
-    if(trip.trip_closed === true){
-        closedTrips.push(trip)
-    } else {
-        openTrips.push(trip)
-    }
+const closedTrips = tripsData.filter(trip => {
+    return trip.trip_closed
 })
 
+const openTrips = tripsData.filter(trip => {
+    return trip.trip_closed === false
+})
 
 let defaultState = {
     registering: false,

@@ -1,6 +1,6 @@
 import React from 'react';
 import PeopleForm from './PeopleForm';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Trip from './Trip/Trip'
 import Card from './Trip/Card';
 import '../styles/TripsDashboard.css';
@@ -10,21 +10,43 @@ import {connect} from 'react-redux'
 //###############################################################################
 
 function TripsDashboard(props) {
-  // console.log("dash trips: ", props)
+  console.log("dash trips: ", props)
     return (
       // <Route>
         <div className="dashboard">
         <h1>TripsDashboard</h1>
-          <nav>
-
+         
+            
               <Link className = "btn" to="/people-form">New Trip</Link>
+              <h1>CLOSED</h1>
             {props.closedTrips.map((trip)=> {
-              return( <Card trip={trip} key={Math.random()}/>)
+              return ( 
+              <Link to={{
+                pathname:`/trip/${trip.trip_id}`,
+                state:{
+                  trip:trip
+                }
+              }}> 
+                <Card trip={trip} key={Math.random()}/> 
+              </Link>
+              )
             })}
+
+            <h1>OPEN</h1>
             {props.openTrips.map((trip)=> {
-              return(<Card trip={trip} key={Math.random()}/>)
+              return (
+              <Link to={{
+                pathname:`/trip/${trip.trip_id}`,
+                state:{
+                  trip:trip
+                }
+              }}> 
+                <Card trip={trip} key={Math.random()}/>
+              </Link>
+              )
+
             })}
-          </nav>
+          
         </div>
       // </Route>
     );
