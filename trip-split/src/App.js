@@ -3,16 +3,12 @@ import {Route} from 'react-router-dom';
 import './App.css';
 import { connect } from 'react-redux';
 import {PrivateRoute} from './utils/PrivateRoute';
-
 import { register, login, getHome, getUsers, getUser, updateUser, deleteUser, getTrips, getTrip, postTrip } from './actions/actions';
 
-import PeopleForm from './Components/PeopleForm';
-
-import LoginForm from './Components/Login/LoginForm';
-import SignUpForm from './Components/Login/SignUpForm';
-import Trip from './Components/Trip/Trip';
-
-import TripsDashboard from './Components/TripsDashboard';
+import PeopleForm from './components/PeopleForm';
+import LoginForm from './components/Login/LoginForm';
+import Trip from './components/Trip/Trip';
+import TripsDashboard from './components/TripsDashboard';
 
 
 function App(props) {
@@ -95,30 +91,15 @@ function App(props) {
       <button onClick = {getTripTest}>Get trip</button>
       <button onClick = {postTripTest}>Post trip</button>
 
-
-
-
-
-
-
- 
-
-      
-      {/* <LoginForm/>
-      <SignUpForm/>
-      <Trip/> */}
-      {/* <Route exact path="/" component={TripsDashboard}/> */}
       <Route path = "/login" component = {LoginForm} />
       <Route path="/trip/:id" component={Trip}/>
       <Route path="/people-form" component={PeopleForm}/>
       <PrivateRoute exact path = "/" component = {TripsDashboard}/>
-      {/* <Route path = "/trip" render = {props => <MovieList addToSavedList = {this.addToSavedList} {...props} /> */}
     </div>
   );
 }
 
 function mapStateToProps(state){
-  console.log("state: ", state)
   return {}
 }
 

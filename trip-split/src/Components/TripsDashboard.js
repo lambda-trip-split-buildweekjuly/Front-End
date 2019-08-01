@@ -1,7 +1,5 @@
 import React from 'react';
-import PeopleForm from './PeopleForm';
 import { Link } from 'react-router-dom';
-import Trip from './Trip/Trip'
 import Card from './Trip/Card';
 import '../styles/TripsDashboard.css';
 
@@ -13,42 +11,28 @@ function TripsDashboard(props) {
   console.log("dash trips: ", props)
     return (
         <div className="dashboard">
-        <h1>TripsDashboard</h1>
-         
-            
-              <Link className = "btn" to="/people-form">New Trip</Link>
-              <h1>CLOSED</h1>
-            {props.closedTrips.map((trip)=> {
-              return ( 
-              <Link to={{
-                pathname:`/trip/${trip.trip_id}`,
-                state:{
-                  trip:trip
-                }
-              }}> 
-                <Card trip={trip} key={Math.random()}/> 
+          <h1>TripsDashboard</h1>
+          <Link className = "btn" to="/people-form">New Trip</Link>
+          <h2>CLOSED</h2>
+          {props.closedTrips.map((trip)=> {
+            return ( 
+              <Link key = {Math.random()} to={{pathname:`/trip/${trip.trip_id}`, state:{trip:trip}}}> 
+                <Card trip = {trip}/> 
               </Link>
-              )
-            })}
+            )
+          })}
 
-            <h1>OPEN</h1>
-            {props.openTrips.map((trip)=> {
-              return (
-              <Link to={{
-                pathname:`/trip/${trip.trip_id}`,
-                state:{
-                  trip:trip
-                }
-              }}> 
-                <Card trip={trip} key={Math.random()}/>
-              </Link>
-              )
-
-            })}
-          
+          <h2>OPEN</h2>
+          {props.openTrips.map((trip)=> {
+            return (
+            <Link key = {Math.random()} to={{pathname:`/trip/${trip.trip_id}`, state:{trip:trip}}}> 
+              <Card trip = {trip}/>
+            </Link>
+            )
+          })}
         </div>
     );
-  } 
+} 
 
 
 //for Redux #######################################################################
@@ -71,6 +55,7 @@ export default connect(mapStateToProps, {})(TripsDashboard);
 //         whatYouWannaCallIt: state.whatItsCalledInReducer.js > defaultState{}
 //       }
 //     }
+//4--> to use "whatYouWannaCallIt" use "props.whatYouWannaCallIt"
 
 
 

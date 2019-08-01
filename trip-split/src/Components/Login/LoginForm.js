@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import logo from '../../Images/logo.png';
 import { connect } from 'react-redux';
-import { register, login, getHome, getUsers, getUser, updateUser, deleteUser } from '../../actions/actions';
+import { register, login } from '../../actions/actions';
 import SignUpForm from './SignUpForm';
 
 //STYLE
@@ -43,7 +43,7 @@ function LoginForm(props) {
 
   return (
     <LoginDiv className="login-container">
-      <img src={logo}></img>
+      <img src={logo} alt = ""></img>
       <h1>Sign In</h1>
         <form onSubmit={onSubmit}>
           <InputDiv>
@@ -62,4 +62,4 @@ function mapStateToProps(state){
   return {}
 }
 
-export default connect(mapStateToProps, {register, login, getHome, getUsers, getUser, updateUser, deleteUser})(LoginForm);
+export default connect(mapStateToProps, {register, login})(LoginForm);

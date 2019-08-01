@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { register, login, getHome, getUsers, getUser, updateUser, deleteUser, getTrips, getTrip, postTrip } from '../../actions/actions';
 
 function ExpenseForm(props) {
 
@@ -55,4 +54,4 @@ function mapStateToProps(state){
   return {}
 }
 
-export default connect(mapStateToProps, {register, login, getHome, getUsers, getUser, updateUser, deleteUser})(ExpenseForm);
+export default connect(mapStateToProps, {})(ExpenseForm);
