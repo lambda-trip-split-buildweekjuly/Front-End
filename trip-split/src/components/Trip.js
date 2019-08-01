@@ -23,8 +23,14 @@ function Trip(props) {
             <button onClick={() => setFormToggle(true)}><h2>+</h2></button>
             <h1>New Expense</h1>
           </div>
+
+          <div className="item-section">
+            <h6>NAME OF EXPENSE</h6>
+            <h6>TOTAL PRICE OF EXPENSE</h6>
+          </div>
+          
           <div className="calculate-section">
-            <button>Calculate Total</button>
+            <button>Calculate Total Expenses</button>
           </div>
         </div>
   )
