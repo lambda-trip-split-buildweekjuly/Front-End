@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import TripCard from './TripCard';
+import {CurrentTripCard, PastTripCard} from './TripCard';
 import '../styles/TripsDashboard.scss';
+import {Button} from './Buttons.js';
 
 //for Redux #####################################################################
 import {connect} from 'react-redux'
@@ -12,21 +13,25 @@ function TripsDashboard(props) {
     return (
         <div className="dashboard">
           <h1>TripsDashboard</h1>
-          <Link className = "btn" to="/people-form">New Trip</Link>
-          <h2>CLOSED</h2>
+
+          <Link to="/people-form"><Button>New Trip</Button></Link>
+
+          <h2>Current Trips</h2>
+
           {props.closedTrips.map((trip)=> {
             return ( 
               <Link key = {Math.random()} to={{pathname:`/trip/${trip.trip_id}`, state:{trip:trip}}}> 
-                <TripCard trip = {trip}/> 
+                <CurrentTripCard trip = {trip}/> 
               </Link>
             )
           })}
 
-          <h2>OPEN</h2>
+          <h2>Past Trips</h2>
+
           {props.openTrips.map((trip)=> {
             return (
             <Link key = {Math.random()} to={{pathname:`/trip/${trip.trip_id}`, state:{trip:trip}}}> 
-              <TripCard trip = {trip}/>
+              <PastTripCard trip = {trip}/>
             </Link>
             )
           })}

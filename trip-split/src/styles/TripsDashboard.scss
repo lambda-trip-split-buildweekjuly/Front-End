@@ -1,5 +1,7 @@
 @import './variables.scss';
 
-.btn {
-    color: $blue;
+.dashboard{
+    max-width: 500px;
+    background: $blue;
+    margin: auto;
 }
