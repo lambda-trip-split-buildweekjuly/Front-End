@@ -10,21 +10,24 @@ import {connect} from 'react-redux'
 //###############################################################################
 
 function TripsDashboard(props) {
-  // console.log("dash trips: ", props)
+  console.log("dash trips: ", props)
     return (
       // <Route>
         <div className="dashboard">
         <h1>TripsDashboard</h1>
-          <nav>
-
+         
+            
               <Link className = "btn" to="/people-form">New Trip</Link>
+              <h1>CLOSED</h1>
             {props.closedTrips.map((trip)=> {
               return( <Card trip={trip} key={Math.random()}/>)
             })}
+
+            <h1>OPEN</h1>
             {props.openTrips.map((trip)=> {
               return(<Card trip={trip} key={Math.random()}/>)
             })}
-          </nav>
+          
         </div>
       // </Route>
     );
