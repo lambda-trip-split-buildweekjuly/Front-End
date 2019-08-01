@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Card from './Trip/Card';
+import Card from './Card';
 import '../styles/TripsDashboard.css';
 
 //for Redux #####################################################################
