@@ -7,6 +7,14 @@ const CardDiv = styled.div`border: 1px solid green;`;
 
 
 export default function Card (props) {
+    // console.log("card-props", props)
+    // function goToTrip() {
+    //     props.history.push({
+    //         pathname: "/trip",
+    //         search: "?the=query",
+    //         state: {trip:props.trip}
+    //     })
+    // }
     console.log(props.trip)
     return(
         <CardDiv>
@@ -21,5 +29,6 @@ export default function Card (props) {
           })} */}
 
         </CardDiv>
-    )
+    ) 
+    
 }

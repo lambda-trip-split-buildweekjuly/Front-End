@@ -109,9 +109,10 @@ function App(props) {
       <Trip/> */}
       {/* <Route exact path="/" component={TripsDashboard}/> */}
       <Route path = "/login" component = {LoginForm} />
-      <Route path="/trip" component={Trip}/>
+      <Route path="/trip/:id" component={Trip}/>
       <Route path="/people-form" component={PeopleForm}/>
       <PrivateRoute exact path = "/" component = {TripsDashboard}/>
+      {/* <Route path = "/trip" render = {props => <MovieList addToSavedList = {this.addToSavedList} {...props} /> */}
     </div>
   );
 }

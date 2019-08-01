@@ -1,6 +1,6 @@
 import React from 'react';
 import PeopleForm from './PeopleForm';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Trip from './Trip/Trip'
 import Card from './Trip/Card';
 import '../styles/TripsDashboard.css';
@@ -20,12 +20,21 @@ function TripsDashboard(props) {
               <Link className = "btn" to="/people-form">New Trip</Link>
               <h1>CLOSED</h1>
             {props.closedTrips.map((trip)=> {
-              return( <Card trip={trip} key={Math.random()}/>)
+              return ( 
+              <Link to={`/trip/${trip.trip_id}`}> 
+                <Card trip={trip} key={Math.random()}/> 
+              </Link>
+              )
             })}
 
             <h1>OPEN</h1>
             {props.openTrips.map((trip)=> {
-              return(<Card trip={trip} key={Math.random()}/>)
+              return (
+              <Link to={`/trip/${trip.trip_id}`}>
+                <Card trip={trip} key={Math.random()}/>
+              </Link>
+              )
+
             })}
           
         </div>
