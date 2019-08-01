@@ -125,8 +125,9 @@ let defaultState = {
     registered: false,
     loggingIn: false,
     loggedIn: false,
-    openTrips: openTrips,
-    closedTrips: closedTrips
+    trips: tripsData,
+    closedTrips: closedTrips,
+    openTrips: openTrips
 }
 
 export default function reducer (state = defaultState, action) {
