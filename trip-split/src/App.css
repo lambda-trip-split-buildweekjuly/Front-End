@@ -30,6 +30,11 @@
   background-position: center;
 } */
 
+.logo-img {
+  width: 200px;
+  margin-top: 10px;
+}
+
 .expense-section {
   display: flex;
   justify-content: center;
