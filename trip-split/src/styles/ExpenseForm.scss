@@ -1,4 +1,4 @@
-@import './variables';
+@import './variables.scss';
 
 
 .form-container{
@@ -21,8 +21,12 @@
             }
         }
 
-        button{
-            margin-bottom: 20px;
-        }
+        // button{
+        //     margin-bottom: 20px;
+        //     background: $light-brown;
+        //     border: 1px solid $dark-beige;
+        //     border-radius: 5px;
+        //     padding: 10px 20px;
+        // }
     }
 }
