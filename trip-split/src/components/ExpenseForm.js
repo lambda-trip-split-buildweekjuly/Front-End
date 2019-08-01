@@ -36,12 +36,12 @@ function ExpenseForm(props) {
       <h1>Expense Form</h1>
         <form onSubmit={onSubmit}>
           <div>
-            <input value={amountsPaid.expenseName} name="expenseName" onChange={onChange} type="text" />
-            <input value={amountsPaid.amount_paid1} name="amount_paid1" onChange={onChange} type="number" />
-            <input value={amountsPaid.amount_paid2} name="amount_paid2" onChange={onChange} type="number" />
-            <input value={amountsPaid.amount_paid3} name="amount_paid3" onChange={onChange} type="number" />
-            <input value={amountsPaid.amount_paid4} name="amount_paid4" onChange={onChange} type="number" />
-            <input value={amountsPaid.amount_paid5} name="amount_paid5" onChange={onChange} type="number" />
+            <input placeholder="Expense" value={amountsPaid.expenseName} name="expenseName" onChange={onChange} type="text" />
+            <input placeholder="Amount" value={amountsPaid.amount_paid1} name="amount_paid1" onChange={onChange} type="number" />
+            <input placeholder="Amount" value={amountsPaid.amount_paid2} name="amount_paid2" onChange={onChange} type="number" />
+            <input placeholder="Amount" value={amountsPaid.amount_paid3} name="amount_paid3" onChange={onChange} type="number" />
+            <input placeholder="Amount" value={amountsPaid.amount_paid4} name="amount_paid4" onChange={onChange} type="number" />
+            <input placeholder="Amount" value={amountsPaid.amount_paid5} name="amount_paid5" onChange={onChange} type="number" />
           </div>
             <button onClick={() => props.setFormToggle(false)} type="submit">Save Expense</button>
         </form>
