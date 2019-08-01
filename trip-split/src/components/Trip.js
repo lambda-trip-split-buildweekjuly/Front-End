@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ExpenseForm from './ExpenseForm';
+import {Button} from './Buttons.js';
 //STYLE
 
 function Trip(props) {
@@ -20,8 +21,7 @@ function Trip(props) {
         :<div className="trip-container">
           <h1>Trip</h1>
           <div className="expense-section">
-            <button onClick={() => setFormToggle(true)}><h2>+</h2></button>
-            <h1>New Expense</h1>
+            <Button onClick={() => setFormToggle(true)}><h2>New Expense</h2></Button>
           </div>
 
           <div className="item-section">
@@ -30,7 +30,7 @@ function Trip(props) {
           </div>
           
           <div className="calculate-section">
-            <button>Calculate Total Expenses</button>
+            <Button>Calculate Total Expenses</Button>
           </div>
         </div>
   )

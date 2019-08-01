@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Card from './Card';
+import TripCard from './TripCard';
 import '../styles/TripsDashboard.scss';
 
 //for Redux #####################################################################
@@ -17,7 +17,7 @@ function TripsDashboard(props) {
           {props.closedTrips.map((trip)=> {
             return ( 
               <Link key = {Math.random()} to={{pathname:`/trip/${trip.trip_id}`, state:{trip:trip}}}> 
-                <Card trip = {trip}/> 
+                <TripCard trip = {trip}/> 
               </Link>
             )
           })}
@@ -26,7 +26,7 @@ function TripsDashboard(props) {
           {props.openTrips.map((trip)=> {
             return (
             <Link key = {Math.random()} to={{pathname:`/trip/${trip.trip_id}`, state:{trip:trip}}}> 
-              <Card trip = {trip}/>
+              <TripCard trip = {trip}/>
             </Link>
             )
           })}
@@ -56,12 +56,3 @@ export default connect(mapStateToProps, {})(TripsDashboard);
 //       }
 //     }
 //4--> to use "whatYouWannaCallIt" use "props.whatYouWannaCallIt"
-
-
-
-
-
-
-
-
-    
