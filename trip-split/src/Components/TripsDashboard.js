@@ -21,7 +21,12 @@ function TripsDashboard(props) {
               <h1>CLOSED</h1>
             {props.closedTrips.map((trip)=> {
               return ( 
-              <Link to={`/trip/${trip.trip_id}`}> 
+              <Link to={{
+                pathname:`/trip/${trip.trip_id}`,
+                state:{
+                  trip:trip
+                }
+              }}> 
                 <Card trip={trip} key={Math.random()}/> 
               </Link>
               )
@@ -30,7 +35,12 @@ function TripsDashboard(props) {
             <h1>OPEN</h1>
             {props.openTrips.map((trip)=> {
               return (
-              <Link to={`/trip/${trip.trip_id}`}>
+              <Link to={{
+                pathname:`/trip/${trip.trip_id}`,
+                state:{
+                  trip:trip
+                }
+              }}> 
                 <Card trip={trip} key={Math.random()}/>
               </Link>
               )
