@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import Card from './Card';
 import '../styles/TripsDashboard.css';
+import { getTripsByUserId } from '../actions/actions';
+
 
 //for Redux #####################################################################
 import {connect} from 'react-redux'
 //###############################################################################
 
 function TripsDashboard(props) {
+
+  useEffect(()=>{
+    const user_id = localStorage.getItem('user_id')
+    props.getTripsByUserId(user_id)
+  }, [])
+   
   console.log("dash trips: ", props)
     return (
         <div className="dashboard">
@@ -44,7 +52,7 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps, {})(TripsDashboard);
+export default connect(mapStateToProps, {getTripsByUserId})(TripsDashboard);
 //###############################################################################
 
 //1 --> import { connect }
