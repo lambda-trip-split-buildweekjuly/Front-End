@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import {Form} from 'semantic-ui-react';
 import '../styles/ExpenseForm.scss';
+import {Button} from './Buttons.js';
 
 function ExpenseForm(props) {
 
@@ -43,7 +44,7 @@ function ExpenseForm(props) {
             <Form.Field className="expense-input"><label>Eddy</label><input placeholder="Amount" value={amountsPaid.amount_paid3} name="amount_paid3" onChange={onChange} type="number" /></Form.Field>
             <Form.Field className="expense-input"><label>Tom</label><input placeholder="Amount" value={amountsPaid.amount_paid4} name="amount_paid4" onChange={onChange} type="number" /></Form.Field>
             <Form.Field className="expense-input"><label>Jerry</label><input placeholder="Amount" value={amountsPaid.amount_paid5} name="amount_paid5" onChange={onChange} type="number" /></Form.Field>
-            <button onClick={() => props.setFormToggle(false)} type="submit">Save Expense</button>
+            <Button onClick={() => props.setFormToggle(false)} type="submit">Save Expense</Button>
           </Form>
     </div>
   )

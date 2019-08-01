@@ -41,6 +41,15 @@ export const POSTTRIP_START = 'POSTTRIP_START';
 export const POSTTRIP_SUCCESS = 'POSTTRIP_SUCCESS';
 export const POSTTRIP_FAILURE = 'POSTTRIP_FAILURE';
 
+export const POSTEXPENSE_START = 'POSTEXPENSE_START';
+export const POSTEXPENSE_SUCCESS = 'POSTEXPENSE_SUCCESS';
+export const POSTEXPENSE_FAILURE = 'POSTEXPENSE_FAILURE';
+
+export const GETTRIPSBYUID_START = 'GETTRIPSBYUID_START';
+export const GETTRIPSBYUID_SUCCESS = 'GETTRIPSBYUID_SUCCESS';
+export const GETTRIPSBYUID_FAILURE = 'GETTRIPSBYUID_FAILURE';
+
+
 
 
 export const register = creds => dispatch => {
@@ -64,7 +73,7 @@ export const login = creds => dispatch => {
         .then(res => {
             console.log("LOGIN_RES: ", res)
             localStorage.setItem('token', res.data.token);
-            dispatch({ type: LOGIN_SUCCESS, payload: res.data.user });
+            dispatch({ type: LOGIN_SUCCESS, payload: res.data.user_id });
             return true
         })
         .catch(err => {
@@ -93,7 +102,7 @@ export const getUsers = () => (dispatch) => {
         .get('https://split-trip-bw.herokuapp.com/api/users')
         .then(res => {
             console.log("GETUSERS RES: ", res)
-            dispatch({type: GETUSERS_SUCCESS})
+            dispatch({type: GETUSERS_SUCCESS, payload: res.data.AllUsers})
         })
         .catch(err => {
             console.log("GETUSERS ERR: ", err)
@@ -107,7 +116,7 @@ export const getUser = (user_id) => (dispatch) => {
         .get(`https://split-trip-bw.herokuapp.com/api/users/${user_id}`)
         .then(res => {
             console.log("GETUSER RES: ", res)
-            dispatch({type: GETUSER_SUCCESS, payload: res.data})
+            dispatch({type: GETUSER_SUCCESS, payload: res.data.user})
         })
         .catch(err => {
             console.log("GETUSER ERR: ", err)
@@ -121,13 +130,15 @@ export const updateUser = (id, userObj) => dispatch => {
       .patch(`https://split-trip-bw.herokuapp.com/api/users/${id}`, userObj)
       .then(res => {
         console.log("UPDATEUSER RES: ", res)
-        dispatch({ type: UPDATEUSER_SUCCESS, payload: res.data.posts});
+        dispatch({ type: UPDATEUSER_SUCCESS});
       })
       .catch(err => {
         console.log("UPDATEUSER ERR: ", err)
         dispatch({ type: UPDATEUSER_FAILURE});
       });
 };
+
+// ^^ returns message only. Need new user(s)
 
 export const deleteUser = (id) => dispatch => {
     dispatch({ type: DELETEUSER_START });
@@ -143,27 +154,16 @@ export const deleteUser = (id) => dispatch => {
       });
 };
 
-// export const getTrips = () => (dispatch) => {
-//   dispatch ({type: GETTRIPS_START})
-//   axiosAuth()
-//     .get('https://split-trip-bw.herokuapp.com/api/trips')
-//     .then(res => {
-//         console.log("GETTRIPS RES: ", res)
-//         dispatch({type: GETTRIPS_SUCCESS})
-//     })
-//     .catch(err => {
-//         console.log("GETTRIPS ERR: ", err)
-//         dispatch({type: GETTRIPS_FAILURE})
-//     })
-// }
+// ^^ returns message only. Need new user(s)
+
 
 export const getTrips = () => (dispatch) => {
   dispatch ({type: GETTRIPS_START})
   axiosAuth()
-    .get('https://split-trip-bw.herokuapp.com/api/people/expenses')
+    .get('https://split-trip-bw.herokuapp.com/api/trips')
     .then(res => {
         console.log("GETTRIPS RES: ", res)
-        dispatch({type: GETTRIPS_SUCCESS})
+        dispatch({type: GETTRIPS_SUCCESS, payload: res.data.AllTrips})
     })
     .catch(err => {
         console.log("GETTRIPS ERR: ", err)
@@ -171,27 +171,14 @@ export const getTrips = () => (dispatch) => {
     })
 }
 
-// export const getTrip = (trip_id) => (dispatch) => {
-//   dispatch ({type: GETTRIP_START})
-//   axiosAuth()
-//       .get(`https://split-trip-bw.herokuapp.com/api/trips/${trip_id}`)
-//       .then(res => {
-//           console.log("GETTRIP RES: ", res)
-//           dispatch({type: GETTRIP_SUCCESS, payload: res.data})
-//       })
-//       .catch(err => {
-//           console.log("GETTRIP ERR: ", err)
-//           dispatch({type: GETTRIP_FAILURE})
-//       })
-// };
 
 export const getTrip = (trip_id) => (dispatch) => {
   dispatch ({type: GETTRIP_START})
   axiosAuth()
-      .get(`https://split-trip-bw.herokuapp.com/api/people/expenses/${trip_id}`)
+      .get(`https://split-trip-bw.herokuapp.com/api/trips/${trip_id}`)
       .then(res => {
           console.log("GETTRIP RES: ", res)
-          dispatch({type: GETTRIP_SUCCESS, payload: res.data})
+          dispatch({type: GETTRIP_SUCCESS, payload: res.data.Trip})
       })
       .catch(err => {
           console.log("GETTRIP ERR: ", err)
@@ -199,7 +186,20 @@ export const getTrip = (trip_id) => (dispatch) => {
       })
 };
 
-// people/expenses
+export const getTripsByUserId = (user_id) => (dispatch) => {
+  dispatch ({type: GETTRIPSBYUID_START})
+  axiosAuth()
+      .get(`https://split-trip-bw.herokuapp.com/api/trips/user/${user_id}`)
+      .then(res => {
+          console.log("GETTRIPSBYUID RES: ", res)
+          dispatch({type: GETTRIPSBYUID_SUCCESS, payload: res.data.Trip})
+      })
+      .catch(err => {
+          console.log("GETTRIPSBYUID ERR: ", err)
+          dispatch({type: GETTRIPSBYUID_FAILURE})
+      })
+};
+
 
 export const postTrip = (tripObj) => dispatch => {
   dispatch({ type: POSTTRIP_START });
@@ -207,10 +207,29 @@ export const postTrip = (tripObj) => dispatch => {
     .post('https://split-trip-bw.herokuapp.com/api/trips', tripObj)
     .then(res => {
       console.log("POSTTRIP RES: ", res)
-      dispatch({ type: POSTTRIP_SUCCESS, payload: res.data.posts});
+      dispatch({ type: POSTTRIP_SUCCESS,});
     })
     .catch(err => {
       console.log("POSTTRIP ERR: ", err)
       dispatch({ type: POSTTRIP_FAILURE});
     });
 };
+
+// ^^ returns a message, need trips
+
+export const postExpense = (expenseObj) => dispatch => {
+  dispatch({ type: POSTEXPENSE_START });
+  axiosAuth()
+    .post('https://split-trip-bw.herokuapp.com/api/expenses', expenseObj)
+    .then(res => {
+      console.log("POSTEXPENSE RES: ", res)
+      dispatch({ type: POSTEXPENSE_SUCCESS});
+    })
+    .catch(err => {
+      console.log("POSTEXPENSE ERR: ", err)
+      dispatch({ type: POSTEXPENSE_FAILURE});
+    });
+};
+
+// ^^ returns a message, need trips
+
