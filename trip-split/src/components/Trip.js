@@ -13,24 +13,28 @@ import ExpenseCard from './ExpenseCard';
 
 function Trip(props) {
   const [formToggle, setFormToggle] = useState(false);
-  const [trip, setTrip] = useState({
-    expense: [],
-    trip_id: false
-  })
+  // const [trip, setTrip] = useState({
+  //   expense: [],
+  //   trip_id: false
+  // })
 
-  useEffect(() => {
-    function getTripData() {
-      const id = props.match.params.id;
-      const tripObj = props.location.state.trip;
-      setTrip(tripObj);
-    }
-    getTripData()}, [props.match.params.id, props.location.state])
+  // useEffect(() => {
+  //   function getTripData() {
+  //     const id = props.match.params.id;
+  //     const tripObj = props.location.state.trip;
+  //     setTrip(tripObj);
+  //   }
+  //   getTripData()}, [props.match.params.id, props.location.state])
 
   useEffect(() => {
     const user_id = localStorage.getItem('user_id')
     props.getTripsByUserId(user_id)
   }, [props.getTripsTrigger])
   // console.log("trip", trip);
+
+  let trip = (props.openTrips[0].trip_date !== "" ? props.openTrips.filter(trip => {
+    return trip.trip_id === parseFloat(props.match.params.id)
+  })[0] : props.openTrips[0])
 
   return (
       formToggle 
@@ -60,7 +64,8 @@ function Trip(props) {
 
 function mapStateToProps(state){
   return {
-    getTripsTrigger: state.getTripsTrigger
+    getTripsTrigger: state.getTripsTrigger,
+    openTrips: state.openTrips
   }
 }
 

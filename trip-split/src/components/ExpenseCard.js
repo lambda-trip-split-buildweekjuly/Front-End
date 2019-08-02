@@ -14,7 +14,7 @@ function ExpenseCard(props) {
         trip.trip_id
             ? <div className="expense-card">
                 <h1>{props.expense.expense_title}</h1>
-                <h1>
+                <h1>$
                   {props.expense.memebers.reduce(function(total,member){
                     return total+member.expense_amount_paid
                   },0)}
