@@ -240,7 +240,7 @@ export default function reducer (state = defaultState, action) {
             }
         case GETTRIPSBYUID_SUCCESS:
             function frankenstein(trips){
-                let people = trips.map(trip => {
+                return trips.map(trip => {
                     return {
                         people: trip.people.map(person => {
                             return {
@@ -261,7 +261,6 @@ export default function reducer (state = defaultState, action) {
                         })
                     }     
                 })
-                return people
             }
             return {
                 ...state,
