@@ -24,7 +24,8 @@ let defaultState = {
     closedTrips: [],
     openTrips: [],
     user_id: null,
-    getTripsTrigger: false
+    getTripsTrigger: false,
+    computationalData: [],
 
 }
 
@@ -202,6 +203,30 @@ export default function reducer (state = defaultState, action) {
                 ...state,
             }
         case GETTRIPSBYUID_SUCCESS:
+            function frankenstein(trips){
+                let people = trips.map(trip => {
+                    return {
+                        people: trip.people.map(person => {
+                            return {
+                                person_name: person.people_name,
+                                person_id: person.id,
+                                expenses: trip.expense.map(expense => {
+                                    return{
+                                        expense_id: expense.id,
+                                        trip_id: trip.trip_id,
+                                        amount_paid: expense.memebers.filter(member => {
+                                            return member.people_id === person.id
+                                        }).reduce((total, memeber) => {
+                                            return total + memeber.expense_amount_paid
+                                        }, 0)
+                                    }
+                                })  
+                            }
+                        })
+                    }     
+                })
+                return people
+            }
             return {
                 ...state,
                 trips: action.payload,
@@ -211,6 +236,7 @@ export default function reducer (state = defaultState, action) {
                 closedTrips: action.payload.filter(trip => {
                     return trip.trip_opened === false
                 }),
+                computationalData: frankenstein(action.payload)
             }           
         case GETTRIPSBYUID_FAILURE:
             return {
