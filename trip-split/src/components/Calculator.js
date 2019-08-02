@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import PeopleCList from './PeopleCList';
+import {Button} from './Buttons.js';
 
 function Calculator(props){
     
@@ -77,8 +78,8 @@ function Calculator(props){
     return(
         <div>
             <h1>Calc</h1>
-            <button onClick = {() => props.setCalcToggle(false)}>Done</button>
-            <button onClick = {() => {getTotalCosts()}}>Start</button>
+            <Button onClick = {() => props.setCalcToggle(false)}>Done</Button>
+            <Button onClick = {() => {getTotalCosts()}}>Start</Button>
             <PeopleCList 
                 people = {people} 
                 evenPayment = {evenPayment} 
