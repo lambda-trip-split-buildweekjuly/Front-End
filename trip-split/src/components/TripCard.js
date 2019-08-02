@@ -29,9 +29,10 @@ import '../styles/TripCard.scss';
 export function CurrentTripCard(props){
 
     const totalExpense = trip => {
+        console.log("props", trip);
         let total = 0;
-        trip.trip.expenses.forEach(expense => {
-            total = total + expense.expense_amount;
+        trip.trip.expense.forEach(expense => {
+            total = total + expense.expense_price;
         });
         return total;
     }

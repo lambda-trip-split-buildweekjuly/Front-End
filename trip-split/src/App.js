@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import './App.css';
 import { connect } from 'react-redux';
 import {PrivateRoute} from './utils/PrivateRoute';
-import { register, login, getHome, getUsers, getUser, updateUser, deleteUser, getTrips, getTrip, postTrip } from './actions/actions';
+import {register, login, getHome, getUsers, getUser, updateUser, deleteUser, getTrips, postTrip, getTrip, postExpense, getTripsByUserId} from './actions/actions';
 import 'semantic-ui-css/semantic.min.css'
 import PeopleForm from './components/PeopleForm';
 import LoginForm from './components/LoginForm';
@@ -107,8 +107,8 @@ function App(props) {
   return (
     <div className="App">
       {/* <h1>Never Worry About Not Getting Paid Back</h1> */}
-      {/* <button onClick = {loginTest}>Login</button>
-      <h1>Never Worry About Not Getting Paid Back</h1>
+      {/* <button onClick = {loginTest}>Login</button>*/}
+      {/* <h1>Never Worry About Not Getting Paid Back</h1>
       <button onClick = {loginTest}>Login</button>
       <button onClick = {registerTest}>Register</button>
       <button onClick = {getTest}>Get home</button>
@@ -121,7 +121,7 @@ function App(props) {
       <button onClick = {getTripTest}>get trip</button>
       <button onClick = {postExpenseTest}>Post expense</button>
       <button onClick = {getTripsByUserIdTest}>get trips by user</button>
-      <button onClick = {postTripTest}>Post trip</button>
+      <button onClick = {postTripTest}>Post trip</button> */}
 
       <Route path = "/login" component = {LoginForm} />
       <Route path="/trip/:id" component={Trip}/>
