@@ -76,6 +76,7 @@ function PeopleForm(props){
                     onChange={handlePeopleChange}
                 />
                 </Form.Field>
+
                 <Form.Field>
                 <label>Name 2</label>
                 <input
@@ -85,6 +86,7 @@ function PeopleForm(props){
                     onChange={handlePeopleChange}
                 />
                 </Form.Field>
+
                 <Form.Field>
                 <label>Name 3</label>
                 <input
@@ -94,6 +96,7 @@ function PeopleForm(props){
                     onChange={handlePeopleChange}
                 />
                 </Form.Field>
+
                 <Form.Field>
                 <label>Name 4</label>
                 <input
@@ -103,6 +106,7 @@ function PeopleForm(props){
                     onChange={handlePeopleChange}
                 />
                 </Form.Field>
+                
                 <Form.Field>
                 <label>Name 5</label>
                 <input

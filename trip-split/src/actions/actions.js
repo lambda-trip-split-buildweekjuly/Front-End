@@ -193,6 +193,7 @@ export const getTripsByUserId = (user_id) => (dispatch) => {
       .then(res => {
           console.log("GETTRIPSBYUID RES: ", res)
           dispatch({type: GETTRIPSBYUID_SUCCESS, payload: res.data.Trip})
+          return true;
       })
       .catch(err => {
           console.log("GETTRIPSBYUID ERR: ", err)

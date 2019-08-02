@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import ExpenseForm from './ExpenseForm';
-<<<<<<< HEAD
+
 import {Button} from './Buttons.js';
-=======
+
 import { connect } from 'react-redux';
 import { getTripsByUserId } from '../actions/actions';
->>>>>>> 32548ffb55a294b0ee4e39c853d897e8d958a946
+
+import ExpenseCard from './ExpenseCard';
+
+
 //STYLE
 
 function Trip(props) {
   const [formToggle, setFormToggle] = useState(false);
   console.log("trip-props", props)
   const [trip, setTrip] = useState({
-
+    expense: [],
+    trip_id: false
   })
+
   useEffect(() => {
     function getTripData() {
       const id = props.match.params.id;
@@ -25,11 +30,10 @@ function Trip(props) {
     getTripData()}, [props.match.params.id, props.location.state])
 
   useEffect(() => {
-    console.log("Please dont be an infinite loop")
+    console.log("Getting user trips")
     const user_id = localStorage.getItem('user_id')
     props.getTripsByUserId(user_id)
   }, [props.getTripsTrigger])
-
 
 
   return (
@@ -49,13 +53,19 @@ function Trip(props) {
           <div className="calculate-section">
             <Button>Calculate Total Expenses</Button>
           </div>
+          {trip.expense.map(expense => {
+            return(
+              <ExpenseCard trip = {trip}/>
+            )
+          })}
         </div>
   )
+ 
 }
 
-<<<<<<< HEAD
+
 export default Trip;
-=======
+
 function mapStateToProps(state){
   return {
     getTripsTrigger: state.getTripsTrigger
@@ -63,4 +73,4 @@ function mapStateToProps(state){
 }
 
 export default connect(mapStateToProps, {getTripsByUserId})(Trip);
->>>>>>> 32548ffb55a294b0ee4e39c853d897e8d958a946
+

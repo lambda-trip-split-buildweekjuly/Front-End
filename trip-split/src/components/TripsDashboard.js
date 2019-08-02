@@ -13,7 +13,7 @@ function TripsDashboard(props) {
   useEffect(()=>{
     const user_id = localStorage.getItem('user_id')
     props.getTripsByUserId(user_id)
-  }, [])
+  }, [props.getTripsTrigger])
    
   console.log("dash trips: ", props)
     return (
@@ -51,7 +51,8 @@ function mapStateToProps(state){
   return {
     trips: state.trips,
     closedTrips: state.closedTrips,
-    openTrips: state.openTrips
+    openTrips: state.openTrips,
+    getTripsTrigger: state.getTripsTrigger,
   }
 }
 
