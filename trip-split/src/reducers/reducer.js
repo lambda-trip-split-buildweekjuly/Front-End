@@ -238,7 +238,7 @@ export default function reducer (state = defaultState, action) {
                 closedTrips: action.payload.filter(trip => {
                     return trip.trip_opened === false
                 }),
-                computationalData: frankenstein(action.payload)
+                computationalData: frankenstein(action.payload),
                 gotTripsTrigger: !state.gotTripsTrigger
             }           
         case GETTRIPSBYUID_FAILURE:

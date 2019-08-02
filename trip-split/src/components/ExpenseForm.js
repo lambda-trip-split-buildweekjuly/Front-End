@@ -18,24 +18,19 @@ function ExpenseForm(props) {
 
   function onChange(event) {
     setAmountsPaid({ ...amountsPaid, [event.target.name]: event.target.value });
-    console.log(amountsPaid);
   }
 
   function onSubmit(event) {
-    event.preventDefault();
-    console.log("onSubmitTriggered");
-    setAmountsPaid({
-      expenseName: "",
-      amount_paid1: "",
-      amount_paid2: "",
-      amount_paid3: "",
-      amount_paid4: "",
-      amount_paid5: ""
-    });
-    //########################
-    //only send as many amounts paid as there are people in people array
+      event.preventDefault();
+      setAmountsPaid({
+        expenseName: "",
+        amount_paid1: "",
+        amount_paid2: "",
+        amount_paid3: "",
+        amount_paid4: "",
+        amount_paid5: ""
+      });
       let amountsPaidArr = [
-          
           {paid: (amountsPaid.amount_paid1 ? parseFloat(amountsPaid.amount_paid1) : 0)},
           {paid: (amountsPaid.amount_paid2 ? parseFloat(amountsPaid.amount_paid2) : 0)},
           {paid: (amountsPaid.amount_paid3 ? parseFloat(amountsPaid.amount_paid3) : 0)},
@@ -49,8 +44,6 @@ function ExpenseForm(props) {
           people_id: props.trip.people[i].id,
         })
       }
-      
-      
       let expenseObj = {
         expense_title: amountsPaid.expenseName,
         expense_price: filteredAmountsPaidArr.reduce(function (accumulator, cost) {
@@ -59,10 +52,7 @@ function ExpenseForm(props) {
         trip_id: props.trip.trip_id,
         expense_members: filteredAmountsPaidArr
       }
-      console.log("EXPOBJ",expenseObj);
-
       props.postExpense(expenseObj)
-      // console.log("TRIPOBJ", tripObj);
       setAmountsPaid({
         expenseName: "",
         amount_paid1: "",

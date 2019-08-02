@@ -14,93 +14,92 @@ import TripsDashboard from './components/TripsDashboard';
 function App(props) {
 
 
-  const loginTest = () => {
-    let credss = {
-      email: "test@email.com",
-      password: "123456",
-    }
-    props.login(credss)
-  }
-
-  const registerTest = () => {
-    let creds = {
-      "name": "John Doe",
-      "email": "test@email.com",
-      "password": "123456",
-      "role": "user"
-    }
-    props.register(creds)
-  }
-
-  const getTest = () => {
-    props.getHome()
-  }
-
-  const getUsersTest = () => {
-    props.getUsers()
-  }
-
-  const getUserTest = () => {
-    props.getUser(2)
-  }
-
-  const updateUserTest = () => {
-    let update = {
-      email: "update@test.com"
-    }
-    props.updateUser(2, update);
-  }
-
-  const deleteUserTest = () => {
-    props.deleteUser(1)
-  }
-
-  const getTripsTest = () => {
-    props.getTrips()
-  }
-
-  // const getTripsByUserIdTest = () => {
-  //   props.getTripsByUserId(1)
+  // const loginTest = () => {
+  //   let credss = {
+  //     email: "test@email.com",
+  //     password: "123456",
+  //   }
+  //   props.login(credss)
   // }
 
-  const postTripTest = () => {
-    let tripObj = {
-      trip_name: "Disney Park",
-      trip_destination: "london",
-      trip_date: "20-01-2019",
-      trip_opened: true,
-      peoples:[
-        {people_name:"tayo alade"},
-        {people_name: "tayo jojo"}
-      ]
-     }
-    props.postTrip(tripObj)
-  }
+  // const registerTest = () => {
+  //   let creds = {
+  //     "name": "John Doe",
+  //     "email": "test@email.com",
+  //     "password": "123456",
+  //     "role": "user"
+  //   }
+  //   props.register(creds)
+  // }
 
-  const getTripTest = () => {
-    props.getTrip(4)
-  }
+  // const getTest = () => {
+  //   props.getHome()
+  // }
 
-  const postExpenseTest = () => {
-    let expenseObj = {
-      expense_title: "Orange",
-      expense_price: 5,
-      trip_id: 1,
-      expense_members:[
-        {expense_amount_paid: 3,
-        people_id: 1},
-        {expense_amount_paid: 2,
-        people_id: 2}
-      ]
-    }
-    props.postExpense(expenseObj)
-  }
+  // const getUsersTest = () => {
+  //   props.getUsers()
+  // }
 
-  const getTripsByUserIdTest = () => {
-    const user_id = localStorage.getItem('user_id')
-    console.log("user_id", user_id)
-    props.getTripsByUserId(user_id)
-  }
+  // const getUserTest = () => {
+  //   props.getUser(2)
+  // }
+
+  // const updateUserTest = () => {
+  //   let update = {
+  //     email: "update@test.com"
+  //   }
+  //   props.updateUser(2, update);
+  // }
+
+  // const deleteUserTest = () => {
+  //   props.deleteUser(1)
+  // }
+
+  // const getTripsTest = () => {
+  //   props.getTrips()
+  // }
+
+  // // const getTripsByUserIdTest = () => {
+  // //   props.getTripsByUserId(1)
+  // // }
+
+  // const postTripTest = () => {
+  //   let tripObj = {
+  //     trip_name: "Disney Park",
+  //     trip_destination: "london",
+  //     trip_date: "20-01-2019",
+  //     trip_opened: true,
+  //     peoples:[
+  //       {people_name:"tayo alade"},
+  //       {people_name: "tayo jojo"}
+  //     ]
+  //    }
+  //   props.postTrip(tripObj)
+  // }
+
+  // const getTripTest = () => {
+  //   props.getTrip(4)
+  // }
+
+  // const postExpenseTest = () => {
+  //   let expenseObj = {
+  //     expense_title: "Orange",
+  //     expense_price: 5,
+  //     trip_id: 1,
+  //     expense_members:[
+  //       {expense_amount_paid: 3,
+  //       people_id: 1},
+  //       {expense_amount_paid: 2,
+  //       people_id: 2}
+  //     ]
+  //   }
+  //   props.postExpense(expenseObj)
+  // }
+
+  // const getTripsByUserIdTest = () => {
+  //   const user_id = localStorage.getItem('user_id')
+  //   props.getTripsByUserId(user_id)
+  // }
 
 
 

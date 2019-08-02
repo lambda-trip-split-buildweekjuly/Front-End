@@ -13,7 +13,6 @@ import ExpenseCard from './ExpenseCard';
 
 function Trip(props) {
   const [formToggle, setFormToggle] = useState(false);
-  console.log("trip-props", props)
   const [trip, setTrip] = useState({
     expense: [],
     trip_id: false
@@ -23,14 +22,11 @@ function Trip(props) {
     function getTripData() {
       const id = props.match.params.id;
       const tripObj = props.location.state.trip;
-      // console.log("id", id);
       setTrip(tripObj);
-      
     }
     getTripData()}, [props.match.params.id, props.location.state])
 
   useEffect(() => {
-    console.log("Getting user trips")
     const user_id = localStorage.getItem('user_id')
     props.getTripsByUserId(user_id)
   }, [props.getTripsTrigger])
