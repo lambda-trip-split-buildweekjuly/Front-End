@@ -5,31 +5,52 @@ import moment from "moment";
 import {Form} from 'semantic-ui-react';
 
 function PeopleForm(props){
-    const [tripInfo, setTripInfo] = useState({
-        trip: '', 
-        person1: '', 
-        person2: '', 
-        person3:'', 
-        person4: '', 
-        person5: ''
-    });
+    const [trip, setTrip] = useState("");
+    const [people, setPeople] = useState(
+        { 
+            person1: '' , 
+            person2: '' , 
+            person3: '' , 
+            person4: '' , 
+            person5: '' 
+        }
+    )
+
+
     const handleChange = event => {
-        setTripInfo({...tripInfo, [event.target.name]: event.target.value});
+        setTrip(event.target.value);
     };
+    
+     const handlePeopleChange = event => {
+        setPeople({...people, [event.target.name]: event.target.value});
+    };
+    
     const handleSubmit = event => {
         event.preventDefault();
+        
+        let peoplesArray = [
+            {people_name: people.person1},
+            {people_name: people.person2},
+            {people_name: people.person3},
+            {people_name: people.person4},
+            {people_name: people.person5}
+        ]
+
+        let filteredPeoplesArray = peoplesArray.filter(person => {
+            return person.people_name !== "";
+        })
+        
         let tripObj = {
-            trip_name: tripInfo.trip,
+            trip_name: trip,
             trip_destination: "Planet Earth",
             trip_date: moment().format("MMM Do YY"), 
             trip_opened: true,
-            peoples:[
-              {people_name:"tayo alade"},
-              {people_name: "tayo jojo"}
-            ]
+            peoples: filteredPeoplesArray
         }
         props.postTrip(tripObj)
-        setTripInfo({trip: '', person1: '', person2: '', person3:'', person4: '', person5: ''});
+        // console.log("TRIPOBJ", tripObj);
+        setPeople({person1: '', person2: '', person3:'', person4: '', person5: ''});
+        setTrip("");
         props.history.push('/');
     }
     return (
@@ -40,7 +61,7 @@ function PeopleForm(props){
                     <input
                     placeholder="Trip Name"
                     name="trip"
-                    value={tripInfo.trip}
+                    value={trip}
                     onChange={handleChange}
                     />
                 </Form.Field>
@@ -48,40 +69,40 @@ function PeopleForm(props){
                 <input
                     placeholder="Name"
                     name="person1"
-                    value={tripInfo.person1}
-                    onChange={handleChange}
+                    value={people.person1}
+                    onChange={handlePeopleChange}
                 />
                 </Form.Field>
                 <Form.Field>
                 <input
                     placeholder="Name"
                     name="person2"
-                    value={tripInfo.person2}
-                    onChange={handleChange}
+                    value={people.person2}
+                    onChange={handlePeopleChange}
                 />
                 </Form.Field>
                 <Form.Field>
                 <input
                     placeholder="Name"
                     name="person3"
-                    value={tripInfo.person3}
-                    onChange={handleChange}
+                    value={people.person3}
+                    onChange={handlePeopleChange}
                 />
                 </Form.Field>
                 <Form.Field>
                 <input
                     placeholder="Name"
                     name="person4"
-                    value={tripInfo.person4}
-                    onChange={handleChange}
+                    value={people.person4}
+                    onChange={handlePeopleChange}
                 />
                 </Form.Field>
                 <Form.Field>
                 <input
                     placeholder="Name"
                     name="person5"
-                    value={tripInfo.person5}
-                    onChange={handleChange}
+                    value={people.person5}
+                    onChange={handlePeopleChange}
                 />
                 </Form.Field>
                 <button>Submit</button>
