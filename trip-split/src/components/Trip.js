@@ -9,7 +9,8 @@ function Trip(props) {
   const [formToggle, setFormToggle] = useState(false);
   console.log("trip-props", props)
   const [trip, setTrip] = useState({
-
+    expense: [],
+    trip_id: false
   })
 
   useEffect(() => {
@@ -23,11 +24,10 @@ function Trip(props) {
     getTripData()}, [props.match.params.id, props.location.state])
 
   useEffect(() => {
-    console.log("Please dont be an infinite loop")
+    console.log("Getting user trips")
     const user_id = localStorage.getItem('user_id')
     props.getTripsByUserId(user_id)
   }, [props.getTripsTrigger])
-
 
 
   return (
@@ -48,7 +48,11 @@ function Trip(props) {
           <div className="calculate-section">
             <button>Calculate Total Expenses</button>
           </div>
-          <ExpenseCard trip={trip}/>
+          {trip.expense.map(expense => {
+            return(
+              <ExpenseCard trip = {trip}/>
+            )
+          })}
         </div>
   )
  

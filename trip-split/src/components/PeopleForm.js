@@ -73,6 +73,7 @@ function PeopleForm(props){
                     onChange={handlePeopleChange}
                 />
                 </Form.Field>
+
                 <Form.Field>
                 <input
                     placeholder="Name"
@@ -81,6 +82,7 @@ function PeopleForm(props){
                     onChange={handlePeopleChange}
                 />
                 </Form.Field>
+
                 <Form.Field>
                 <input
                     placeholder="Name"
@@ -89,6 +91,7 @@ function PeopleForm(props){
                     onChange={handlePeopleChange}
                 />
                 </Form.Field>
+
                 <Form.Field>
                 <input
                     placeholder="Name"
@@ -97,6 +100,7 @@ function PeopleForm(props){
                     onChange={handlePeopleChange}
                 />
                 </Form.Field>
+                
                 <Form.Field>
                 <input
                     placeholder="Name"
