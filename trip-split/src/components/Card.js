@@ -11,7 +11,7 @@ export default function Card (props) {
     return(
         <CardDiv>
             <h1>{props.trip.trip_name}</h1>
-            <p>Card js</p>
+            {/* <p>Card js</p> */}
 
           {/* {props.trip.expenses.map((expense)=> {
             return(expense.expense_members.map((member)=>{

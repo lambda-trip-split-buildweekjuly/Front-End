@@ -14,6 +14,7 @@ function PeopleForm(props){
             person5: '' 
         }
     )
+
     const handleChange = event => {
         setTrip(event.target.value);
     };
@@ -32,6 +33,7 @@ function PeopleForm(props){
             {people_name: people.person4},
             {people_name: people.person5}
         ]
+
         let filteredPeoplesArray = peoplesArray.filter(person => {
             return person.people_name !== "";
         })
@@ -44,7 +46,7 @@ function PeopleForm(props){
             peoples: filteredPeoplesArray
         }
         props.postTrip(tripObj)
-        console.log("TRIPOBJ", tripObj);
+
         setPeople({person1: '', person2: '', person3:'', person4: '', person5: ''});
         setTrip("");
         props.history.push('/');
