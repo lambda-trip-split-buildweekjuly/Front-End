@@ -4,7 +4,6 @@ import {CurrentTripCard, PastTripCard} from './TripCard';
 import {getTripsByUserId} from '../actions/actions.js';
 import '../styles/TripsDashboard.scss';
 import {Button} from './Buttons.js';
-
 //for Redux #####################################################################
 import {connect} from 'react-redux'
 //###############################################################################
@@ -24,7 +23,7 @@ function TripsDashboard(props) {
    
     return (
         <div className="dashboard">
-          <button onClick = {(e) => logOut(e)}>Logout</button>
+          <Button onClick = {(e) => logOut(e)}>Logout</Button>
           <h1>My Trips</h1>
 
           <Link to="/people-form"><Button>New Trip</Button></Link>
