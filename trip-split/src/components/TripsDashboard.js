@@ -15,9 +15,16 @@ function TripsDashboard(props) {
     const user_id = localStorage.getItem('user_id')
     props.getTripsByUserId(user_id)
   }, [props.getTripsTrigger])
+
+  const logOut = e => {
+    e.preventDefault()
+    localStorage.clear();
+    window.location.reload();
+}
    
     return (
         <div className="dashboard">
+          <button onClick = {(e) => logOut(e)}>Logout</button>
           <h1>My Trips</h1>
 
           <Link to="/people-form"><Button>New Trip</Button></Link>
