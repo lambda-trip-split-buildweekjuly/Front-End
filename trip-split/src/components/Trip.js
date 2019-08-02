@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ExpenseForm from './ExpenseForm';
 import { connect } from 'react-redux';
 import { getTripsByUserId } from '../actions/actions';
+import ExpenseCard from './ExpenseCard';
 //STYLE
 
 function Trip(props) {
@@ -10,6 +11,7 @@ function Trip(props) {
   const [trip, setTrip] = useState({
 
   })
+
   useEffect(() => {
     function getTripData() {
       const id = props.match.params.id;
@@ -46,8 +48,10 @@ function Trip(props) {
           <div className="calculate-section">
             <button>Calculate Total Expenses</button>
           </div>
+          <ExpenseCard trip={trip}/>
         </div>
   )
+ 
 }
 
 function mapStateToProps(state){
