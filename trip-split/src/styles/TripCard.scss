@@ -1,9 +1,11 @@
 @import './variables.scss';
 
 .card-container{
+    display: flex;
+    flex-direction: column-reverse;
 
     .trip-card{
-        margin: auto;
+        margin: 10px auto !important;
     }
 
     .current-trip-card{

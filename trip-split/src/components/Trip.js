@@ -5,7 +5,7 @@ import {Button} from './Buttons.js';
 
 import { connect } from 'react-redux';
 import { getTripsByUserId } from '../actions/actions';
-
+import '../styles/Trip.scss';
 import ExpenseCard from './ExpenseCard';
 
 
@@ -34,7 +34,7 @@ function Trip(props) {
     const user_id = localStorage.getItem('user_id')
     props.getTripsByUserId(user_id)
   }, [props.getTripsTrigger])
-
+  // console.log("trip", trip);
 
   return (
       formToggle 
@@ -44,27 +44,23 @@ function Trip(props) {
           <div className="expense-section">
             <Button onClick={() => setFormToggle(true)}><h2>New Expense</h2></Button>
           </div>
-
-          <div className="item-section">
-            <h6>NAME OF EXPENSE</h6>
-            <h6>TOTAL PRICE OF EXPENSE</h6>
-          </div>
           
           <div className="calculate-section">
             <Button>Calculate Total Expenses</Button>
           </div>
+          <div className="expense-cards">
           {trip.expense.map(expense => {
             return(
-              <ExpenseCard trip = {trip}/>
+              <ExpenseCard expense = {expense} trip = {trip}/>
             )
           })}
+          </div>
         </div>
   )
  
 }
 
 
-export default Trip;
 
 function mapStateToProps(state){
   return {

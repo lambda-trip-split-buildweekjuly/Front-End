@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import {CurrentTripCard, PastTripCard} from './TripCard';
+import {getTripsByUserId} from '../actions/actions.js';
 import '../styles/TripsDashboard.scss';
 import {Button} from './Buttons.js';
 
@@ -21,9 +22,7 @@ function TripsDashboard(props) {
           <h1>My Trips</h1>
 
           <Link to="/people-form"><Button>New Trip</Button></Link>
-
-          <h2>Current Trips</h2>
-
+          <div className="trip-card-container">
           {props.openTrips.map((trip)=> {
             return (
               <Link key = {Math.random()} to={{pathname:`/trip/${trip.trip_id}`, state:{trip:trip}}}> 
@@ -31,8 +30,9 @@ function TripsDashboard(props) {
             </Link>
             )
           })}
+          </div>
 
-          <h2>Past Trips</h2>
+          {/* <h2>Past Trips</h2>
 
           {props.closedTrips.map((trip)=> {
             return ( 
@@ -40,7 +40,7 @@ function TripsDashboard(props) {
                 <PastTripCard trip = {trip}/> 
               </Link>
             )
-          })}
+          })} */}
         </div>
     );
 } 
