@@ -22,13 +22,11 @@ function LoginForm(props) {
 
   function onChange(event) {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
-    console.log(credentials);
   }
 
   function onSubmit(event) {
     event.preventDefault();
     loginHandler();
-    console.log(credentials);
     setCredentials({email: "", password: ""}); 
   }
 

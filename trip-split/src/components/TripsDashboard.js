@@ -16,7 +16,6 @@ function TripsDashboard(props) {
     props.getTripsByUserId(user_id)
   }, [props.getTripsTrigger])
    
-  console.log("dash trips: ", props)
     return (
         <div className="dashboard">
           <h1>My Trips</h1>

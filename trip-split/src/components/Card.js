@@ -7,7 +7,6 @@ const CardDiv = styled.div`border: 1px solid green;`;
 
 
 export default function Card (props) {
-    console.log(props.trip)
     return(
         <CardDiv>
             <h1>{props.trip.trip_name}</h1>

@@ -23,13 +23,11 @@ function SignUpForm(props) {
 
   function onChange(event) {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
-    console.log(credentials);
   }
 
   function onSubmit(event) {
     event.preventDefault();
     registerHandler();
-    console.log(credentials);
     setCredentials({name: "", email: "", password: ""});
   }
 
