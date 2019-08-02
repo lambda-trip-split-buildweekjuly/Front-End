@@ -3,8 +3,8 @@ import {Route} from 'react-router-dom';
 import './App.css';
 import { connect } from 'react-redux';
 import {PrivateRoute} from './utils/PrivateRoute';
-import { register, login, getHome, getUsers, getUser, updateUser, deleteUser, getTrips, postTrip, getTrip, postExpense, getTripsByUserId } from './actions/actions';
-// , getTripsByUserId
+import { register, login, getHome, getUsers, getUser, updateUser, deleteUser, getTrips, getTrip, postTrip } from './actions/actions';
+import 'semantic-ui-css/semantic.min.css'
 import PeopleForm from './components/PeopleForm';
 import LoginForm from './components/LoginForm';
 import Trip from './components/Trip';
@@ -106,6 +106,8 @@ function App(props) {
 
   return (
     <div className="App">
+      {/* <h1>Never Worry About Not Getting Paid Back</h1> */}
+      {/* <button onClick = {loginTest}>Login</button>
       <h1>Never Worry About Not Getting Paid Back</h1>
       <button onClick = {loginTest}>Login</button>
       <button onClick = {registerTest}>Register</button>

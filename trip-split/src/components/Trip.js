@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import ExpenseForm from './ExpenseForm';
+
+import {Button} from './Buttons.js';
+
 import { connect } from 'react-redux';
 import { getTripsByUserId } from '../actions/actions';
+
 import ExpenseCard from './ExpenseCard';
+
+
 //STYLE
 
 function Trip(props) {
@@ -36,8 +42,7 @@ function Trip(props) {
         :<div className="trip-container">
           <h1>{trip.trip_name}</h1>
           <div className="expense-section">
-            <button onClick={() => setFormToggle(true)}><h2>+</h2></button>
-            <h1>New Expense</h1>
+            <Button onClick={() => setFormToggle(true)}><h2>New Expense</h2></Button>
           </div>
 
           <div className="item-section">
@@ -46,7 +51,7 @@ function Trip(props) {
           </div>
           
           <div className="calculate-section">
-            <button>Calculate Total Expenses</button>
+            <Button>Calculate Total Expenses</Button>
           </div>
           {trip.expense.map(expense => {
             return(
@@ -58,6 +63,9 @@ function Trip(props) {
  
 }
 
+
+export default Trip;
+
 function mapStateToProps(state){
   return {
     getTripsTrigger: state.getTripsTrigger
@@ -65,3 +73,4 @@ function mapStateToProps(state){
 }
 
 export default connect(mapStateToProps, {getTripsByUserId})(Trip);
+
