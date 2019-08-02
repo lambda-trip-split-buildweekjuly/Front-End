@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { postTrip } from '../actions/actions';
 import moment from "moment";
 import {Form} from 'semantic-ui-react';
-
 function PeopleForm(props){
     const [trip, setTrip] = useState("");
     const [people, setPeople] = useState(
@@ -15,7 +14,6 @@ function PeopleForm(props){
             person5: '' 
         }
     )
-
 
     const handleChange = event => {
         setTrip(event.target.value);
@@ -48,7 +46,7 @@ function PeopleForm(props){
             peoples: filteredPeoplesArray
         }
         props.postTrip(tripObj)
-        // console.log("TRIPOBJ", tripObj);
+
         setPeople({person1: '', person2: '', person3:'', person4: '', person5: ''});
         setTrip("");
         props.history.push('/');
@@ -113,5 +111,9 @@ function PeopleForm(props){
 function mapStateToProps(){
     return {}
 }
-
 export default connect(mapStateToProps, {postTrip})(PeopleForm);
+
+
+
+
+
