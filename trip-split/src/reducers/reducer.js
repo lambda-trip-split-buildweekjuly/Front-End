@@ -26,7 +26,7 @@ let defaultState = {
     user_id: null,
     getTripsTrigger: false,
     computationalData: [],
-
+    gotTripsTrigger: false,
 }
 
 export default function reducer (state = defaultState, action) {
@@ -172,6 +172,7 @@ export default function reducer (state = defaultState, action) {
         case POSTTRIP_START:
             return {
                 ...state,
+                getTripsTrigger: !state.getTripsTrigger
             }
         case POSTTRIP_SUCCESS:
             return {
@@ -188,6 +189,7 @@ export default function reducer (state = defaultState, action) {
                 ...state,
             }
         case POSTEXPENSE_SUCCESS:
+            console.log("Get trips trigger trigger")
             return {
                 ...state,
                 getTripsTrigger: !state.getTripsTrigger
@@ -237,6 +239,7 @@ export default function reducer (state = defaultState, action) {
                     return trip.trip_opened === false
                 }),
                 computationalData: frankenstein(action.payload)
+                gotTripsTrigger: !state.gotTripsTrigger
             }           
         case GETTRIPSBYUID_FAILURE:
             return {

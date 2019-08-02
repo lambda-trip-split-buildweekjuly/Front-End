@@ -1,6 +1,13 @@
 @import './variables.scss';
 
-.btn {
-    color: $blue;
-}
+.dashboard{
+    max-width: 500px;
+    background: $blue;
+    margin: auto;
+    padding-bottom: 20px;
 
+    .trip-card-container{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}

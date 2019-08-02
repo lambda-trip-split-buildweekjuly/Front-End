@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { postTrip } from '../actions/actions';
 import moment from "moment";
 import {Form} from 'semantic-ui-react';
+import '../styles/PeopleForm.scss';
+import {Button} from './Buttons.js';
+
 function PeopleForm(props){
     const [trip, setTrip] = useState("");
     const [people, setPeople] = useState(
@@ -52,10 +55,11 @@ function PeopleForm(props){
         props.history.push('/');
     }
     return (
-        <div>
-            <h1>PeopleForm</h1>
-            <Form onSubmit={handleSubmit}>
+        <div className="new-trip">
+            <h1>New Trip</h1>
+            <Form className="trip-form" onSubmit={handleSubmit}>
                 <Form.Field>
+                    <label>Trip Name</label>
                     <input
                     placeholder="Trip Name"
                     name="trip"
@@ -64,6 +68,7 @@ function PeopleForm(props){
                     />
                 </Form.Field>
                 <Form.Field>
+                <label>Name 1</label>
                 <input
                     placeholder="Name"
                     name="person1"
@@ -71,7 +76,9 @@ function PeopleForm(props){
                     onChange={handlePeopleChange}
                 />
                 </Form.Field>
+
                 <Form.Field>
+                <label>Name 2</label>
                 <input
                     placeholder="Name"
                     name="person2"
@@ -79,7 +86,9 @@ function PeopleForm(props){
                     onChange={handlePeopleChange}
                 />
                 </Form.Field>
+
                 <Form.Field>
+                <label>Name 3</label>
                 <input
                     placeholder="Name"
                     name="person3"
@@ -87,7 +96,9 @@ function PeopleForm(props){
                     onChange={handlePeopleChange}
                 />
                 </Form.Field>
+
                 <Form.Field>
+                <label>Name 4</label>
                 <input
                     placeholder="Name"
                     name="person4"
@@ -95,7 +106,9 @@ function PeopleForm(props){
                     onChange={handlePeopleChange}
                 />
                 </Form.Field>
+                
                 <Form.Field>
+                <label>Name 5</label>
                 <input
                     placeholder="Name"
                     name="person5"
@@ -103,7 +116,7 @@ function PeopleForm(props){
                     onChange={handlePeopleChange}
                 />
                 </Form.Field>
-                <button>Submit</button>
+                <Button>Submit</Button>
             </Form>
         </div>
     )
