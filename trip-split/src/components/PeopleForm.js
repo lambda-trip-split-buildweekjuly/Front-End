@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {Form} from 'semantic-ui-react';
+import '../styles/PeopleForm.scss';
+import {Button} from './Buttons.js';
 
 export default function PeopleForm(props){
     const [people, setPeople] = useState({trip: '', person1: '', person2: '', person3:'', person4: '', person5: ''});
@@ -12,10 +14,11 @@ export default function PeopleForm(props){
         props.history.push('/');
     }
     return (
-        <div>
-            <h1>PeopleForm</h1>
-            <Form onSubmit={handleSubmit}>
+        <div className="new-trip">
+            <h1>New Trip</h1>
+            <Form className="trip-form" onSubmit={handleSubmit}>
                 <Form.Field>
+                    <label>Trip Name</label>
                     <input
                     placeholder="Trip Name"
                     name="trip"
@@ -24,6 +27,7 @@ export default function PeopleForm(props){
                     />
                 </Form.Field>
                 <Form.Field>
+                <label>Name 1</label>
                 <input
                     placeholder="Name"
                     name="person1"
@@ -32,6 +36,7 @@ export default function PeopleForm(props){
                 />
                 </Form.Field>
                 <Form.Field>
+                <label>Name 2</label>
                 <input
                     placeholder="Name"
                     name="person2"
@@ -40,6 +45,7 @@ export default function PeopleForm(props){
                 />
                 </Form.Field>
                 <Form.Field>
+                <label>Name 3</label>
                 <input
                     placeholder="Name"
                     name="person3"
@@ -48,6 +54,7 @@ export default function PeopleForm(props){
                 />
                 </Form.Field>
                 <Form.Field>
+                <label>Name 4</label>
                 <input
                     placeholder="Name"
                     name="person4"
@@ -56,6 +63,7 @@ export default function PeopleForm(props){
                 />
                 </Form.Field>
                 <Form.Field>
+                <label>Name 5</label>
                 <input
                     placeholder="Name"
                     name="person5"
@@ -63,7 +71,7 @@ export default function PeopleForm(props){
                     onChange={handleChange}
                 />
                 </Form.Field>
-                <button>Submit</button>
+                <Button>Submit</Button>
             </Form>
         </div>
     )

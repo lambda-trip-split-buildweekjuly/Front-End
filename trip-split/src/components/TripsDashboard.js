@@ -12,27 +12,27 @@ function TripsDashboard(props) {
   console.log("dash trips: ", props)
     return (
         <div className="dashboard">
-          <h1>TripsDashboard</h1>
+          <h1>My Trips</h1>
 
           <Link to="/people-form"><Button>New Trip</Button></Link>
 
           <h2>Current Trips</h2>
 
-          {props.closedTrips.map((trip)=> {
-            return ( 
+          {props.openTrips.map((trip)=> {
+            return (
               <Link key = {Math.random()} to={{pathname:`/trip/${trip.trip_id}`, state:{trip:trip}}}> 
-                <CurrentTripCard trip = {trip}/> 
-              </Link>
+              <CurrentTripCard trip = {trip}/>
+            </Link>
             )
           })}
 
           <h2>Past Trips</h2>
 
-          {props.openTrips.map((trip)=> {
-            return (
-            <Link key = {Math.random()} to={{pathname:`/trip/${trip.trip_id}`, state:{trip:trip}}}> 
-              <PastTripCard trip = {trip}/>
-            </Link>
+          {props.closedTrips.map((trip)=> {
+            return ( 
+              <Link key = {Math.random()} to={{pathname:`/trip/${trip.trip_id}`, state:{trip:trip}}}> 
+                <PastTripCard trip = {trip}/> 
+              </Link>
             )
           })}
         </div>
